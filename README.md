@@ -8,6 +8,11 @@ Issue tracking can be found [here](https://trello.com/b/uiGhjbJI/humane-society-
 
     bundle install
     rake db:create db:migrate
+    rake db:restore 
+
+## cms-admin credentials
+    username: admin@rubyforood.com
+    password: password
 
 ## Contributing:
 
