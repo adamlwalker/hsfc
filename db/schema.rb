@@ -11,10 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731192944) do
+ActiveRecord::Schema.define(version: 20150731204343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "application_id"
+    t.integer  "integer_response"
+    t.string   "string_response"
+    t.text     "text_response"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "applicants", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "home_telephone_number"
+    t.string   "mobile_telephone_number"
+    t.string   "work_telephone_number"
+    t.boolean  "under_18"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "state"
+    t.integer  "zip_code"
+    t.string   "email_address"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "application_types", force: :cascade do |t|
+    t.integer  "pet_types_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.integer  "application_type_id_id"
+    t.integer  "applicant_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "cms_fortress_role_details", force: :cascade do |t|
     t.string   "name"
@@ -235,11 +274,21 @@ ActiveRecord::Schema.define(version: 20150731192944) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
-  create_table "locations", force: :cascade do |t|
+  create_table "pet_types", force: :cascade do |t|
     t.string   "name"
-    t.integer  "distance"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "position"
+    t.integer  "application_type_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "hint_text"
+    t.integer  "parent_id"
+    t.text     "option_list"
   end
 
 end
