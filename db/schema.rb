@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731204343) do
+ActiveRecord::Schema.define(version: 20150731214734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_types", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -40,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150731204343) do
     t.string   "email_address"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "city"
   end
 
   create_table "application_types", force: :cascade do |t|
@@ -49,10 +54,10 @@ ActiveRecord::Schema.define(version: 20150731204343) do
   end
 
   create_table "applications", force: :cascade do |t|
-    t.integer  "application_type_id_id"
+    t.integer  "application_type_id"
     t.integer  "applicant_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "cms_fortress_role_details", force: :cascade do |t|
@@ -289,6 +294,8 @@ ActiveRecord::Schema.define(version: 20150731204343) do
     t.string   "hint_text"
     t.integer  "parent_id"
     t.text     "option_list"
+    t.boolean  "answer_by_applicant"
+    t.integer  "answer_type_id"
   end
 
 end
