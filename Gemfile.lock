@@ -105,6 +105,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.45.4)
     execjs (2.5.2)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -151,6 +152,9 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    petfinder (1.0.2)
+      excon (~> 0.26)
+      nokogiri (~> 1.6)
     pg (0.18.2)
     plupload-rails (1.2.1)
       rails (>= 3.1)
@@ -241,6 +245,7 @@ DEPENDENCIES
   comfy_blog (~> 1.12.0)
   jbuilder (~> 2.0)
   jquery-rails
+  petfinder
   pg
   rails (= 4.2.1)
   sass-rails (~> 5.0)
