@@ -1,1 +1,22 @@
 /* HSFC STYLEZ! */
+
+/* Navigation */
+nav{
+  padding-top:30px;
+  padding-bottom:30px;
+  
+}
+
+.hsfc-navigation{
+  list-style:none;
+  margin:0;
+  padding:0;
+  
+  li.primary-nav{
+    display:inline;
+    margin-right:30px;
+  }
+  a.dropdown-toggle{
+    cursor:pointer;
+  }
+}
