@@ -8,6 +8,16 @@ nav{
   padding-top:30px;
   padding-bottom:30px;
   
+  .logo{
+    width:200px;
+    height:91px;
+    background-image:url(image_path('logo.jpg'));
+    background-size: 200px 91px;
+    background-repeat:no-repeat;
+    background-position:top left;
+    margin-right:30px;
+  }
+  
 }
 
 .hsfc-navigation{
