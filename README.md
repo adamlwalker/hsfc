@@ -8,7 +8,7 @@ Issue tracking can be found [here](https://trello.com/b/uiGhjbJI/humane-society-
 
     bundle install
     rake db:create db:migrate
-    rake db:restore 
+    pg_restore db/hsfc_rubyforgood.dump
 
 ## cms-admin credentials
     username: admin@rubyforgood.com
@@ -22,6 +22,10 @@ Branch off of master:
 
 Make changes, commit, then push your changes.
 
+    rake db:dump
+
     git push
     
 Submit PR into master.
+
+
