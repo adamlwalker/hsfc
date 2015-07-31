@@ -11,7 +11,7 @@ Issue tracking can be found [here](https://trello.com/b/uiGhjbJI/humane-society-
     rake db:restore 
 
 ## cms-admin credentials
-    username: admin@rubyforood.com
+    username: admin@rubyforgood.com
     password: password
 
 ## Contributing:
