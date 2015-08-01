@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801214458) do
+ActiveRecord::Schema.define(version: 20150801220321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,19 +28,15 @@ ActiveRecord::Schema.define(version: 20150801214458) do
   end
 
   create_table "adoption_forms", force: :cascade do |t|
-    t.integer  "application_type_id"
+    t.integer  "adoption_form_type_id"
     t.integer  "applicant_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-  create_table "answer_types", force: :cascade do |t|
-    t.string "name"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
-    t.integer  "application_id"
+    t.integer  "adoption_form_id"
     t.integer  "integer_response"
     t.string   "string_response"
     t.text     "text_response"
@@ -307,13 +303,14 @@ ActiveRecord::Schema.define(version: 20150801214458) do
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.integer  "position"
-    t.integer  "application_type_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "adoption_form_type_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "hint_text"
     t.integer  "parent_id"
     t.boolean  "answer_by_applicant"
     t.integer  "answer_type_id"
+    t.string   "answer_type"
   end
 
 end
