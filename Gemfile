@@ -6,6 +6,7 @@ gem 'cms-fortress', '~> 1.3.6'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
 gem 'comfy_blog', '~> 1.12.0'
+gem 'cms-fortress', '~> 1.3.6'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'petfinder'
@@ -21,6 +22,9 @@ end
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'rspec-rails', '~> 3.0'
   gem 'spring'
+  gem 'web-console', '~> 2.0'
 end
