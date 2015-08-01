@@ -1,0 +1,23 @@
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url(/system/comfy/cms/files/files/000/000/001/original/animal-dog-pet-brown.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    height: 600px;
+}
+
+.donate {
+  position: relative;
+  width: 500px;
+  background-color: rgba(194, 178, 128,.3);
+  float: right;
+  padding: 15px 0 15px 15px;
+}
+
+.donate p {
+  color: black;
+  text-shadow: none;
+}
