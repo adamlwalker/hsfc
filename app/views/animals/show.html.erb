@@ -1,0 +1,26 @@
+<div class="animal-listing container">
+  <%- if @animal.present? %>
+    <div class="row">
+      <h1><%= @animal.name %></h1>
+
+      <div class='col-xs-12 text-center col-md-7'>
+        <%- if @animal.photos.count > 1 %>
+          <%= render partial: 'photo_carousel' %>
+        <%- elsif @animal.photos.count == 1 %>
+          <img class='img-thumbnail' src="<%= @animal.photos.first.large %>">
+        <%- else %>
+          <i class='text-center'>No image available</i>
+        <% end %>
+      </div>
+
+      <div class='col-xs-12 col-md-5'>
+        <%= render partial: 'animal_info', locals: {description_label: 'Age', description_value: @animal.age} %>
+        <%= render partial: 'animal_info', locals: {description_label: 'Gender', description_value: gender_label(@animal.sex)} %>
+        <%= render partial: 'animal_info', locals: {description_label: 'Breed(s)', description_value: @animal.breeds.join(", ")} %>
+        <%= render partial: 'animal_info', locals: {description_label: 'Size', description_value: size_label(@animal.size)} %>
+        <%= render partial: 'animal_info', locals: {description_label: 'More info', description_value: options_label(@animal.options)} %>
+        <p class='description'><%= @animal.description %></p>
+      </div>
+    </div>
+  <%end%>
+</div>

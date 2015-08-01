@@ -225,4 +225,19 @@ footer{
   .animal {
     margin-bottom: 30px;
   }
+
+  #photo-carousel {
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  .description-label {
+    color: $grey;
+    text-align: right;
+  }
+
+  .description {
+    margin-top: 10px;
+  }
 }

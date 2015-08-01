@@ -6,7 +6,7 @@ describe AnimalsController, type: :controller do
   let(:rabbit) { double(:rabbit, animal: 'Rabbit') }
   let(:small_animal) { double(:small_animal, animal: 'Small & Furry') }
   let(:horse) { double(:horse, animal: 'Horse') }
-  let(:client) { double(:client, shelter_pets: [dog, cat, rabbit, small_animal, horse]) }
+  let(:client) { double(:client, shelter_pets: [dog, cat, rabbit, small_animal, horse], pet: dog) }
 
   before do
     allow(Petfinder::Client).to receive(:new).and_return(client)
@@ -24,6 +24,13 @@ describe AnimalsController, type: :controller do
     end
   end
 
+  describe '#dog' do
+    it 'finds the pet' do
+      get :dog, petfinder_id: '1234'
+      expect(assigns(:animal)).to eq(dog)
+    end
+  end
+
   describe '#cats' do
     it 'finds the shelter pets' do
       expect(client).to receive(:shelter_pets).with('VA163', count: 1000)
@@ -33,6 +40,14 @@ describe AnimalsController, type: :controller do
     it 'selects only the cats from the list of pets' do
       get :cats
       expect(assigns(:animals)).to eq([cat])
+    end
+  end
+
+  describe '#cat' do
+    it 'finds the pet' do
+      allow(client).to receive(:pet).and_return(cat)
+      get :cat, petfinder_id: '1234'
+      expect(assigns(:animal)).to eq(cat)
     end
   end
 
@@ -48,6 +63,14 @@ describe AnimalsController, type: :controller do
     end
   end
 
+  describe '#rabbit' do
+    it 'finds the pet' do
+      allow(client).to receive(:pet).and_return(rabbit)
+      get :rabbit, petfinder_id: '1234'
+      expect(assigns(:animal)).to eq(rabbit)
+    end
+  end
+
   describe '#small_animals' do
     it 'finds the shelter pets' do
       expect(client).to receive(:shelter_pets).with('VA163', count: 1000)
@@ -60,6 +83,14 @@ describe AnimalsController, type: :controller do
     end
   end
 
+  describe '#small_animal' do
+    it 'finds the pet' do
+      allow(client).to receive(:pet).and_return(small_animal)
+      get :small_animal, petfinder_id: '1234'
+      expect(assigns(:animal)).to eq(small_animal)
+    end
+  end
+
   describe '#horses' do
     it 'finds the shelter pets' do
       expect(client).to receive(:shelter_pets).with('VA163', count: 1000)
@@ -69,6 +100,14 @@ describe AnimalsController, type: :controller do
     it 'selects only the horses from the list of pets' do
       get :horses
       expect(assigns(:animals)).to eq([horse])
+    end
+  end
+
+  describe '#horse' do
+    it 'finds the pet' do
+      allow(client).to receive(:pet).and_return(horse)
+      get :horse, petfinder_id: '1234'
+      expect(assigns(:animal)).to eq(horse)
     end
   end
 end
