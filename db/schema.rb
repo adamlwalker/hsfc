@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731214734) do
+ActiveRecord::Schema.define(version: 20150801180608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "adoption_form_types", force: :cascade do |t|
+    t.integer  "pet_type_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "adoption_forms", force: :cascade do |t|
+    t.integer  "adoption_form_type_id"
+    t.integer  "applicant_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "answer_types", force: :cascade do |t|
     t.string "name"
@@ -22,12 +35,13 @@ ActiveRecord::Schema.define(version: 20150731214734) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
-    t.integer  "application_id"
+    t.integer  "adoption_form_id"
     t.integer  "integer_response"
     t.string   "string_response"
     t.text     "text_response"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.boolean  "boolean_response"
   end
 
   create_table "applicants", force: :cascade do |t|
@@ -45,19 +59,6 @@ ActiveRecord::Schema.define(version: 20150731214734) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "city"
-  end
-
-  create_table "application_types", force: :cascade do |t|
-    t.integer  "pet_type_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "applications", force: :cascade do |t|
-    t.integer  "application_type_id_id"
-    t.integer  "applicant_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
   end
 
   create_table "cms_fortress_role_details", force: :cascade do |t|
@@ -279,28 +280,29 @@ ActiveRecord::Schema.define(version: 20150731214734) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "distance"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pet_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "question_adoption_form_types", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "adoption_form_type_id"
+  end
+
+  create_table "question_options", force: :cascade do |t|
+    t.integer "question_id"
+    t.string  "option_text"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.integer  "position"
-    t.integer  "application_type_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "hint_text"
     t.integer  "parent_id"
-    t.text     "option_list"
     t.boolean  "answer_by_applicant"
     t.integer  "answer_type_id"
   end
