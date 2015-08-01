@@ -61,6 +61,12 @@ ActiveRecord::Schema.define(version: 20150801180608) do
     t.string   "city"
   end
 
+  create_table "application_types", force: :cascade do |t|
+    t.integer  "pet_type_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "cms_fortress_role_details", force: :cascade do |t|
     t.string   "name"
     t.string   "command"
