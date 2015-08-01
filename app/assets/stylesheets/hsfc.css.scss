@@ -48,9 +48,12 @@ nav{
   li.primary-nav{
     display:inline;
     margin-right:30px;
+    font-size:1.25em;
+    font-weight:600;
   }
-  a.dropdown-toggle{
+  a.dropdown-toggle, a{
     cursor:pointer;
+    color:$blue;
   }
 }
 
