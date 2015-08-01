@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  resources :events
 
   get '/adopt/dogs' => 'animals#dogs', as: :dogs_index
   get '/adopt/dogs/:petfinder_id' => 'animals#dog', as: :dog
@@ -23,4 +24,5 @@ Rails.application.routes.draw do
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => false
+
 end

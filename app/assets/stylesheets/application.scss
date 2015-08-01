@@ -11,7 +11,15 @@
  * file per style scope.
  *
  */
+
+/*
+ *= require bootstrap-datepicker3
+  */
+
+ @import "bootstrap-datepicker3";
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "hsfc";
  @import url(http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);
+ @import "events"
+
