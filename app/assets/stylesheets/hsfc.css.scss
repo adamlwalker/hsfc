@@ -1,5 +1,59 @@
+@import "variables";
+@import "mixins";
+
 /* HSFC STYLEZ! */
 
+/* BODY + Sticky footer */
+html, body{
+  height:100%;
+  width:100%;
+}
+.wrap{
+  min-height:100%;
+  margin-bottom:-300px; 
+  &:after{
+    content:"";
+    display:block;
+  }
+}
+footer, .wrap::after{
+  min-height:300px;
+}
 
-.event {
+/* Navigation */
+nav{
+  padding-top:30px;
+  padding-bottom:30px;
+  
+  .logo{
+    width:200px;
+    height:91px;
+    background-image:url(image_path('logo.jpg'));
+    background-size: 200px 91px;
+    background-repeat:no-repeat;
+    background-position:top left;
+    margin-right:30px;
+  }
+  
+}
+
+.hsfc-navigation{
+  list-style:none;
+  margin:0;
+  padding:0;
+  
+  li.primary-nav{
+    display:inline;
+    margin-right:30px;
+  }
+  a.dropdown-toggle{
+    cursor:pointer;
+  }
+}
+
+/* FOOTER */
+footer{
+  background:$blue;
+  padding-top:30px;
+  padding-bottom:30px;
 }

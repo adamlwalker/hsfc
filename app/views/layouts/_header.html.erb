@@ -1,5 +1,38 @@
 <header>
-  <div class="container">
-    NAV AREA
-  </div>
+  <nav>
+    <div class="container">
+      <%= link_to "", "/", :class => "logo pull-left" %>
+      <ul class="hsfc-navigation" role="navigation">
+        <li class="dropdown primary-nav">
+          <a class="dropdown-toggle primary-focus" type="button" id="dropdown-adopt" data-toggle="dropdown" aria-expanded="false">Adopt <i class="fa fa-angle-down"></i></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-adopt">
+            <li><%= link_to "Dogs", "/" %></li>
+            <li><%= link_to "Cats", "/" %></li>
+            <li><%= link_to "Foster Cats", "/" %></li>
+            <li><%= link_to "Horses", "/" %></li>
+            <li><%= link_to "Rabbits", "/" %></li>
+            <li><%= link_to "Small Animals", "/" %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Application", "/" %></li>
+            <li><%= link_to "Adoption Process", "/" %></li>
+            <li><%= link_to "Recent Adoptions", "/" %></li>
+          </ul>
+        </li>
+        <li class="dropdown primary-nav">
+          <a class="dropdown-toggle primary-focus" type="button" id="dropdown-support" data-toggle="dropdown" aria-expanded="false">Support <i class="fa fa-angle-down"></i></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-support">
+            <li><%= link_to "Donate", "/" %></li>
+            <li><%= link_to "Memorial Donation", "/" %></li>
+            <li><%= link_to "Wish List", "/" %></li>
+            <li><%= link_to "Meals Program", "/" %></li>
+            <li><%= link_to "Thrift Store", "/" %></li>
+            <li><%= link_to "Sponsors", "/" %></li>
+          </ul>
+        </li>
+        <li class="primary-nav"><%= link_to "News", "/" %></li>
+        <li class="primary-nav"><%= link_to "About", "/" %></li>
+        <li class="pull-right"><a href="https://www.facebook.com/pages/Humane-Society-of-Fairfax-County/153685368136931" alt="Humane Society of Fairfax County on Facebook"><i class="fa fa-facebook-square"></i></a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
