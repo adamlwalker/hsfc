@@ -1,0 +1,10 @@
+<div class='container'>
+  <div class='row'>
+    <% @articles.each do |article| %>
+      <h1><%= cms_block_render('title', article) %></h1>
+      <em><%= cms_block_render('date', article) %></em>
+
+      <p class='lead'><%= cms_block_render('body', article) %></p>
+    <% end %>
+  </div>
+</div>

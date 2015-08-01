@@ -8,7 +8,7 @@
   <div class="carousel-inner" role="listbox">
     <% @images.each_with_index do |image, i| %>
       <div class="item <%= 'active' if i == 0 %>">
-        <%= image_tag(image.file.url) %>
+        <%= image_tag(image.file.url, class: 'img-responsive') %>
         <div class="carousel-caption">
           <%= image.description %>
         </div>
