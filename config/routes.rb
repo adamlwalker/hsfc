@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  resources :events
 
   cms_fortress_routes :path => '/cms-admin'
 
@@ -10,4 +11,5 @@ Rails.application.routes.draw do
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => false
+
 end
