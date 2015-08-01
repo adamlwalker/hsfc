@@ -5,13 +5,15 @@
       <h4 class="col-md-4"> <%= e.date %></h4>
 
       <div class="col-md-1 col-md-offset-2">
-        <%= link_to " Edit ", edit_event_path(e), class: 'btn btn-info edit_event' %>
+        <%= link_to "Edit", edit_event_path(e), class: 'btn btn-warning edit_event' %>
       </div>
 
       <div class="col-md-1">
-        <%= link_to "Delete", e, :method => :delete, class: 'btn btn-warning delete_event', remote: true %>
+        <%= link_to "Delete", e, :method => :delete, class: 'btn btn-danger delete_event', remote: true %>
       </div>
-      <div class="col-md-12"> <%= e.description %></div>
+
+      <div class="col-md-12"><%= e.description %></div>
+
     </div>
   <% end %>
 </ul>
