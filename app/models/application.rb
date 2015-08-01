@@ -1,4 +1,4 @@
-class Application < ActiveRecord::Base
+class AdoptionForm < ActiveRecord::Base
     belongs_to :applicant
     has_many   :answers
 end

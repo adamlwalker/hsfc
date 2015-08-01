@@ -1,0 +1,23 @@
+<div class="animal-listing container">
+  <%- if @animals.present? %>
+  <div class="row">
+    <%- @animals.each_with_index do |animal, index| %>
+      <%- if index % 4 == 0 %>
+        <div class='clearfix'></div>
+      <%end%>
+      <div class="animal col-xs-3">
+        <%- if animal.photos.present? %>
+          <img style="width: 100%;" src=<%= animal.photos.first.large %> />
+        <%- else %>
+          <i class='text-center'>No image available</i>
+        <% end %>
+        <h4><%= animal.name %></h4>
+        <div><%= animal.breeds.join(", ") %></div>
+      </div>
+    <%end%>
+  </div>
+
+  <%- else %>
+    No <%= controller.action_name.gsub('_', ' ') %> currently available!
+  <% end%>
+</div>

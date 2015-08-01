@@ -7,6 +7,12 @@
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+@mixin border-bottom-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  -moz-border-bottom-right-radius: $radius;
+  -ms-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
 @mixin transition($transition) {
   -webkit-transition: $transition;
   -moz-transition: $transition;
