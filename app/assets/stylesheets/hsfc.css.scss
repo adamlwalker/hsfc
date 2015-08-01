@@ -3,7 +3,11 @@
 
 /* HSFC STYLEZ! */
 
-/* BODY + Sticky footer */
+body{
+  font-family: helvetica, arial, verdana, sans-serif;
+}
+
+/* Sticky footer */
 html, body{
   height:100%;
   width:100%;
@@ -26,17 +30,16 @@ nav{
   padding-bottom:30px;
   
   .logo{
-    width:200px;
-    height:91px;
+    width:150px;
+    height:68px;
     background-image:url(image_path('logo.jpg'));
-    background-size: 200px 91px;
+    background-size: 150px 68px;
     background-repeat:no-repeat;
     background-position:top left;
     margin-right:30px;
   }
   
 }
-
 .hsfc-navigation{
   list-style:none;
   margin:0;
@@ -56,4 +59,22 @@ footer{
   background:$blue;
   padding-top:30px;
   padding-bottom:30px;
+}
+  color:$blue-light;
+  
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    
+    li{
+      
+      a{
+        color:$white;
+        &:hover{
+          color:$orange;
+        }
+      }
+    }
+  }
 }
