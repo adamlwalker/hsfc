@@ -5,6 +5,10 @@
 
 body{
   font-family: helvetica, arial, verdana, sans-serif;
+  color:$body;
+}
+p a{
+  color:$body;
 }
 
 /* Sticky footer */
@@ -44,17 +48,41 @@ nav{
   list-style:none;
   margin:0;
   padding:0;
+  letter-spacing:0.01em;
   
   li.primary-nav{
     display:inline;
-    margin-right:30px;
+    margin-left:30px;
     font-size:1.25em;
     font-weight:600;
   }
   a.dropdown-toggle, a{
     cursor:pointer;
-    color:$blue;
+    color:$body;
   }
+}
+.nav-contact{
+  font-size:0.85em;
+  margin-bottom:20px;
+  color:$grey;
+  letter-spacing:0.03em;
+  
+  .fa-paw{
+    font-size:0.85em;
+    margin:0 10px;
+  }
+  
+  a{
+    color:$grey;
+    text-decoration:none;
+    border-bottom:none;
+    @include transition(all 0.2s ease-in-out);
+    &:hover{
+      border-bottom:1px solid $body;
+    }
+    
+  }
+  
 }
 
 /* FOOTER */
@@ -71,6 +99,7 @@ footer{
   padding-top:30px;
   padding-bottom:30px;
   color:$blue-light;
+  letter-spacing:0.02em;
   
   ul{
     list-style:none;
