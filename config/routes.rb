@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/adopt/horses' => 'animals#horses', as: :horses_index
   get '/adopt/horses/:petfinder_id' => 'animals#horse', as: :horse
 
+  resources :news, only: :index
 
   cms_fortress_routes :path => '/cms-admin'
 
