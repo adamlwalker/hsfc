@@ -3,6 +3,23 @@
 
 /* HSFC STYLEZ! */
 
+/* BODY + Sticky footer */
+html, body{
+  height:100%;
+  width:100%;
+}
+.wrap{
+  min-height:100%;
+  margin-bottom:-300px; 
+  &:after{
+    content:"";
+    display:block;
+  }
+}
+footer, .wrap::after{
+  min-height:300px;
+}
+
 /* Navigation */
 nav{
   padding-top:30px;
@@ -32,4 +49,11 @@ nav{
   a.dropdown-toggle{
     cursor:pointer;
   }
+}
+
+/* FOOTER */
+footer{
+  background:$blue;
+  padding-top:30px;
+  padding-bottom:30px;
 }
