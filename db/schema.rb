@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150801162004) do
-=======
 ActiveRecord::Schema.define(version: 20150801180608) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +23,10 @@ ActiveRecord::Schema.define(version: 20150801180608) do
   end
 
   create_table "adoption_forms", force: :cascade do |t|
-    t.integer  "adoption_form_type_id"
+    t.integer  "application_type_id"
     t.integer  "applicant_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "answer_types", force: :cascade do |t|
@@ -39,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150801180608) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
-    t.integer  "adoption_form_id"
+    t.integer  "application_id"
     t.integer  "integer_response"
     t.string   "string_response"
     t.text     "text_response"
@@ -65,22 +61,6 @@ ActiveRecord::Schema.define(version: 20150801180608) do
     t.string   "city"
   end
 
-<<<<<<< HEAD
-  create_table "application_types", force: :cascade do |t|
-    t.integer  "pet_type_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "applications", force: :cascade do |t|
-    t.integer  "application_type_id"
-    t.integer  "applicant_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-=======
->>>>>>> master
   create_table "cms_fortress_role_details", force: :cascade do |t|
     t.string   "name"
     t.string   "command"
@@ -308,13 +288,6 @@ ActiveRecord::Schema.define(version: 20150801180608) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "distance"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pet_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -334,6 +307,7 @@ ActiveRecord::Schema.define(version: 20150801180608) do
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.integer  "position"
+    t.integer  "application_type_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "hint_text"
