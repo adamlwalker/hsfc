@@ -6,12 +6,14 @@
         <div class='clearfix'></div>
       <%end%>
       <div class="animal col-xs-3">
-        <%- if animal.photos.present? %>
-          <img style="width: 100%;" src=<%= animal.photos.first.large %> />
-        <%- else %>
-          <i class='text-center'>No image available</i>
-        <% end %>
-        <h4><%= animal.name %></h4>
+        <%= link_to send("#{animal.animal.gsub(' & Furry', '_animal').downcase}_path", animal.id) do %>
+          <%- if animal.photos.present? %>
+            <img class='img-thumbnail' src=<%= animal.photos.first.large %> />
+          <%- else %>
+            <em class='text-center'>No image available</em>
+          <% end %>
+          <h4><%= animal.name %></h4>
+        <%end%>
         <div><%= animal.breeds.join(", ") %></div>
       </div>
     <%end%>

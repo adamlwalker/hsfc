@@ -2,30 +2,46 @@ class AnimalsController < ApplicationController
   SHELTER_ID = 'VA163'
 
   before_filter :find_shelter, only: [:dogs, :cats, :rabbits, :small_animals, :horses]
+  before_filter :find_and_render_pet, only: [:dog, :cat, :rabbit, :small_animal, :horse]
 
   def dogs
     select_pets('Dog')
-    render 'animals'
+    render 'index'
+  end
+
+  def dog
   end
 
   def cats
     select_pets('Cat')
-    render 'animals'
+    render 'index'
+  end
+
+  def cat
   end
 
   def rabbits
     select_pets('Rabbit')
-    render 'animals'
+    render 'index'
+  end
+
+  def rabbit
   end
 
   def small_animals
     select_pets('Small & Furry')
-    render 'animals'
+    render 'index'
+  end
+
+  def small_animal
   end
 
   def horses
     select_pets('Horse')
-    render 'animals'
+    render 'index'
+  end
+
+  def horse
   end
 
   private
@@ -40,6 +56,11 @@ class AnimalsController < ApplicationController
 
   def find_pet
     @animal = petfinder_client.pet(params[:petfinder_id])
+  end
+
+  def find_and_render_pet
+    find_pet
+    render 'show'
   end
 
   def select_pets(pet_type)

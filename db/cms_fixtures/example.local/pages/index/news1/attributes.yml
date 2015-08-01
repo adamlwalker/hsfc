@@ -1,0 +1,11 @@
+---
+label: news1
+layout: news
+parent: index
+target_page: 
+categories: []
+is_published: true
+position: 1
+cached_timeout: 0
+aasm_state: published
+published_date: 2015-08-01
