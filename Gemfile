@@ -16,13 +16,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
-
 group :development do
   gem 'pry-rails'
 end
 
 group :development, :test do
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.0'

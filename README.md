@@ -10,6 +10,12 @@ Issue tracking can be found [here](https://trello.com/b/uiGhjbJI/humane-society-
     rake db:create db:migrate
     pg_restore db/hsfc_rubyforgood.dump
 
+## Environment variables
+
+    cp .env-sample .env
+
+Look for Petfinder credentials in Slack channel and add to .env file.
+
 ## cms-admin credentials
     username: admin@rubyforgood.com
     password: password
