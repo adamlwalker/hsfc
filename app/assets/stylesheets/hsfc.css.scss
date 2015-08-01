@@ -55,6 +55,14 @@ nav{
 }
 
 /* FOOTER */
+.footer-shadow{
+  width:100%;
+  height:30px;
+  position:relative;
+  z-index:100;
+  background:$white;
+  @include box-shadow(0 4px 11px -5px #111);
+}
 footer{
   background:$blue;
   padding-top:30px;
