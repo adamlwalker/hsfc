@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150801214458) do
   end
 
   create_table "adoption_forms", force: :cascade do |t|
-    t.integer  "application_type_id_id"
+    t.integer  "adoption_form_type_id"
     t.integer  "applicant_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150801214458) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
-    t.integer  "application_id"
+    t.integer  "adoption_form_id"
     t.integer  "integer_response"
     t.string   "string_response"
     t.text     "text_response"
@@ -306,7 +306,6 @@ ActiveRecord::Schema.define(version: 20150801214458) do
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.integer  "position"
-    t.integer  "application_type_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "hint_text"
