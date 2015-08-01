@@ -1,0 +1,26 @@
+<div id="photo-carousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <% if @animal.photos.present? %>
+      <% @animal.photos.each_with_index do |photo, index| %>
+        <li data-target="#photo-carousel" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
+      <%end%>
+    <%end%>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <% @animal.photos.each_with_index do |photo, index| %>
+      <div class="item <%= 'active' if index == 0 %>">
+        <img src="<%= photo.large %>">
+      </div>
+    <%end%>
+  </div>
+
+  <a class="left carousel-control" href="#photo-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#photo-carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
