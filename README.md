@@ -13,16 +13,21 @@ Issue tracking can be found [here](https://trello.com/b/uiGhjbJI/humane-society-
 ## cms-admin credentials
     username: admin@rubyforgood.com
     password: password
-    
+
 ## Managing non-application code (CMS Fixtures):
 
 After pulling latest changes from the remote you need to **import** the fixture files into your local db.
 
     rake comfortable_mexican_sofa:fixtures:import FROM=example.local TO=localhost
-    
+
 When you want to push your changes up to Github and PR in order for others to see and use your changes **export**.
 
     rake comfortable_mexican_sofa:fixtures:export FROM=localhost TO=example.local
+
+## The Carousel
+
+Upload new photos via the Admin portal. The carousel will cycle through any
+images in the file list.
 
 ## Contributing:
 
@@ -35,7 +40,7 @@ Make changes, commit, then push your changes.
     rake db:dump
 
     git push
-    
+
 Submit PR into master.
 
 
