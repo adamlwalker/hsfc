@@ -1,6 +1,6 @@
 Cms::Fortress.configure do |config|
   # comment the line below if you want to use the default layout
-  config.theme = :wide
+  #config.theme = :wide
 
   # Turn off page workflow options
   # config.enable_page_workflow = false

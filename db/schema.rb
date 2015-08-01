@@ -48,16 +48,16 @@ ActiveRecord::Schema.define(version: 20150731214734) do
   end
 
   create_table "application_types", force: :cascade do |t|
-    t.integer  "pet_types_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "pet_type_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "applications", force: :cascade do |t|
-    t.integer  "application_type_id"
+    t.integer  "application_type_id_id"
     t.integer  "applicant_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "cms_fortress_role_details", force: :cascade do |t|
@@ -278,6 +278,13 @@ ActiveRecord::Schema.define(version: 20150731214734) do
 
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "distance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pet_types", force: :cascade do |t|
     t.string   "name"
