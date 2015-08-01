@@ -31,7 +31,7 @@ footer, .wrap::after{
 /* Navigation */
 nav{
   padding-top:30px;
-  padding-bottom:30px;
+  padding-bottom:15px;
   
   .logo{
     width:150px;
@@ -49,21 +49,124 @@ nav{
   margin:0;
   padding:0;
   letter-spacing:0.01em;
+  &:hover > li > a, &:hover > li > button{
+    
+  }
+  
   
   li.primary-nav{
     display:inline;
     margin-left:30px;
     font-size:1.25em;
     font-weight:600;
+    
+    
   }
   a.dropdown-toggle, a{
+    padding:0;
     cursor:pointer;
-    color:$body;
+    color:$blue;
+    @include transition(all 0.2s ease-in-out);
+    &:hover{
+      color:$orange;
+    }
+    
+    .fa{
+      margin-left:3px;
+      color:$blue-light;
+    }
   }
+  
+  /*Ease in transition for navigation drop down*/
+  .open {    
+    a.primary-focus{
+      border:none;
+      border-bottom:none;
+      padding:0 0 10px 0;
+      position:relative;
+      z-index:2000;
+    }
+    .dropdown-menu{      
+      opacity:1;
+      margin-top:15px;
+      visibility:visible;
+    }
+  }
+  li{
+    margin:0 0 0 25px;
+    display:inline-block;
+    @include transition(all 0.2s ease-in-out);
+    &:hover{      
+      
+    }
+    a, button{
+      padding:0 0 0 0;
+      color:$blue;
+      letter-spacing:0.04em;
+      background:transparent !important;
+      border:none !important;
+      text-decoration:none;
+      position:relative;
+      z-index:300;
+      @include transition(color 0.2s ease-in-out);
+      &:hover{
+      }
+    }
+    .dropdown-menu{
+      background:$white;
+      border:1px solid $blue;
+      margin:10px 0 0 -15px;
+      padding:5px 0 5px;
+      @include border-bottom-right-radius(4px);
+      @include box-shadow(none);
+      @include transition(all 0.1s ease-in-out);      
+      opacity:0;
+      visibility:hidden;
+      display:block;
+            
+      li{
+        display:block;
+        padding:5px 0 5px 0;
+        margin:0;
+      
+        a{
+          color:$blue;
+          font-weight:500;
+          letter-spacing:0.04em;
+          padding:0 15px;
+        
+          &:hover, &:hover::after{
+            color:$orange !important;
+            background:none;
+          }
+        }
+      }
+      li.dropdown-last{
+        border-bottom:none !important;
+      }            
+      .arrow{
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent; 
+        border-bottom:10px solid $blue;
+        position:absolute;
+        top:-10px;
+        left:20px;
+        z-index:100;
+      }
+    } 
+  }
+}
+.nav-divider{
+  border-bottom:1px solid $blue-light;
+  background-color:$white !important;
+  margin-bottom:10px !important;
 }
 .nav-contact{
   font-size:0.85em;
-  margin-bottom:20px;
+  margin-top:5px;
+  margin-bottom:15px;
   color:$grey;
   letter-spacing:0.03em;
   
@@ -78,7 +181,7 @@ nav{
     border-bottom:none;
     @include transition(all 0.2s ease-in-out);
     &:hover{
-      border-bottom:1px solid $body;
+      color:$blue;
     }
     
   }
