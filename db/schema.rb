@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20150801220321) do
   create_table "adoption_forms", force: :cascade do |t|
     t.integer  "adoption_form_type_id"
     t.integer  "applicant_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "answers", force: :cascade do |t|
@@ -281,13 +281,6 @@ ActiveRecord::Schema.define(version: 20150801220321) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "distance"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pet_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -303,8 +296,8 @@ ActiveRecord::Schema.define(version: 20150801220321) do
     t.text     "content"
     t.integer  "position"
     t.integer  "adoption_form_type_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "hint_text"
     t.integer  "parent_id"
     t.boolean  "answer_by_applicant"
