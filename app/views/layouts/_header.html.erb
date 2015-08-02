@@ -2,20 +2,18 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <small class="pull-right hidden-xs"><a href="https://www.google.com/maps/place/4057+Chain+Bridge+Rd,+Fairfax,+VA+22030/@38.8445997,-77.3072039,17z/data=!3m1!4b1!4m2!3m1!1s0x89b64e92857ad087:0xf54d6dac220fb9b9" alt="View on Google Maps" title="View on Google Maps">4057 Chain Bridge Road / Fairfax, VA 22030</a> <i class="fa fa-paw"></i> 703.385.7387</small>
+        <div class="nav-contact-rule">
+          <small class="pull-right hidden-xs nav-contact"><a href="https://www.google.com/maps/place/4057+Chain+Bridge+Rd,+Fairfax,+VA+22030/@38.8445997,-77.3072039,17z/data=!3m1!4b1!4m2!3m1!1s0x89b64e92857ad087:0xf54d6dac220fb9b9" alt="View on Google Maps" title="View on Google Maps">4057 Chain Bridge Road / Fairfax, VA 22030</a> <i class="fa fa-paw"></i> 703.385.7387</small>
+        </div>
       </div>
     </div>
     <nav class="navbar navbar-default" role="navigation">
-      
-      
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-collapse" aria-expanded="false">
           <i class="fa fa-bars"></i>
         </button>
-        <%= link_to "", "/", :class => "navbar-brand logo pull-left" %>
+        <%= link_to "", "/", :class => "navbar-brand logo pull-left", :title => "Humane Society of Fairfax County, Inc", :alt => "Humane Society of Fairfax County, Inc" %>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navigation-collapse">
         <ul class="nav navbar-nav navbar-right hsfc-navigation ">
           <li class="dropdown primary-nav">
@@ -23,12 +21,12 @@
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-adopt">
               <li><%= link_to "Dogs", "/adopt/dogs" %></li>
               <li><%= link_to "Cats", "/adopt/cats" %></li>
-              <li><%= link_to "Foster Cats", "/adopt/foster_cats" %></li>
+              <li><%= link_to "Foster Cats", "/foster_cats" %></li>
               <li><%= link_to "Horses", "/adopt/horses" %></li>
               <li><%= link_to "Rabbits", "/adopt/rabbits" %></li>
               <li><%= link_to "Small Animals", "/adopt/small_animals" %></li>
               <li role="separator" class="divider nav-divider"></li>
-              <li><%= link_to "Application", "/" %></li>
+              <li><%= link_to "Application", "/submissions/new?form_type_id=1" %></li>
               <li><%= link_to "Adoption Process", "/" %></li>
               <li><%= link_to "Recent Adoptions", "/" %></li>
             </ul>
@@ -36,7 +34,7 @@
           <li class="dropdown primary-nav">
             <a class="dropdown-toggle primary-focus" type="button" id="dropdown-support" data-toggle="dropdown" aria-expanded="false">Support <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-support">
-              <li><%= link_to "Donate", "/" %></li>
+              <li><%= link_to "Donate", "/donate" %></li>
               <li><%= link_to "Memorial Donation", "/" %></li>
               <li><%= link_to "Wish List", "/" %></li>
               <li><%= link_to "Meals Program", "/" %></li>
@@ -47,7 +45,7 @@
           <li class="primary-nav"><%= link_to "News", news_index_path %></li>
           <li class="primary-nav"><%= link_to "About", "/" %></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
     </nav>
   </div>
 </header>
