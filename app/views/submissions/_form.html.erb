@@ -1,0 +1,43 @@
+<div class="container">
+  <%= form_for @submission do |f| %>
+      <%=  f.hidden_field :form_type_id %>
+      <%= f.fields_for :responses do |ff| %>
+        <div class="question form-group">
+          <%= ff.hidden_field :question_id %>
+          <p>
+            <%= ff.object.question.content %>
+          </p>
+          <% if ff.object.question.input_type == "text"  %>
+            <div class="text-response">
+              <%= ff.text_field :string_response, class: "form-control" %>
+            </div>
+          <% elsif ff.object.question.input_type == "select" %>
+            <div class="select-response">
+              <%= ff.select :string_response, options_for_select( ff.object.question.option_list), include_blank: true  %>
+            </div>
+          <% elsif ff.object.question.input_type == "integer" %>
+            <div class="integer-response">
+              <%= ff.number_field :integer_response, class: "form-control" %>
+            </div>
+          <% elsif ff.object.question.input_type == "textarea" %>
+            <div class="textarea-response">
+              <%= ff.text_area :string_response, class: "form-control", rows: "5" %>
+            </div>
+          <% elsif ff.object.question.input_type == "boolean"  %>
+            <div class="boolean-response">
+              <%= ff.radio_button :boolean_response, class: "form-control" %>
+            </div>
+          <% elsif ff.object.question.input_type == "date" %>
+            <div class="date-response">
+              <%= ff.text_field :string_response, class: "form-control" %>
+            </div>
+          <% elsif ff.object.question.input_type == "string"  %>
+            <div class="string-response">
+              <%= ff.text_field :string_response, class: "form-control" %>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+</div>
