@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :events
   resources :submissions
+  # FIXME there are some excessive routes
 
   get '/adopt/dogs' => 'animals#dogs', as: :dogs_index
   get '/adopt/dogs/:petfinder_id' => 'animals#dog', as: :dog

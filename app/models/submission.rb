@@ -7,10 +7,9 @@ class Submission < ActiveRecord::Base
 
     accepts_nested_attributes_for :responses
 
-    def self.new_with_build_answers(form_type_id)
+    def self.new_with_responses(form_type_id)
       submission = self.new(form_type_id: form_type_id)
-      questions = submission.form_type.questions
-      questions.each do |q|
+      submission.questions.each do |q|
         submission.responses.build(question_id: q.id)
       end
       submission
