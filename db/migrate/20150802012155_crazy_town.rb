@@ -3,7 +3,7 @@ class CrazyTown < ActiveRecord::Migration
     rename_table          :adoption_form_types,          :form_types
     rename_table          :adoption_forms,               :submissions
     rename_table          :answers,                      :responses
-    rename_table          :question_adoption_form_types, :form_type_questions
+    rename_table          :adoption_form_type_questions, :form_type_questions
 
     drop_table :question_options do |t|
       t.references :question
