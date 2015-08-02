@@ -30,8 +30,8 @@ footer, .wrap::after{
 
 /* Navigation */
 nav{
-  padding-top:30px;
-  padding-bottom:15px;
+  border:none !important;
+  background:$white !important;
   
   .logo{
     width:150px;
@@ -46,7 +46,7 @@ nav{
 }
 .hsfc-navigation{
   list-style:none;
-  margin:0;
+  margin:0 -20px 0 0;
   padding:0;
   letter-spacing:0.01em;
   &:hover > li > a, &:hover > li > button{
@@ -56,39 +56,39 @@ nav{
   
   li.primary-nav{
     display:inline;
-    margin-left:30px;
+    margin-left:0;
     font-size:1.25em;
     font-weight:600;
+
+    a.dropdown-toggle, a{
+      padding:10px 20px;
+      cursor:pointer;
+      color:$blue;
+      @include transition(all 0.2s ease-in-out);
+      &:hover{
+        color:$green;
+      }
     
-    
-  }
-  a.dropdown-toggle, a{
-    padding:0;
-    cursor:pointer;
-    color:$blue;
-    @include transition(all 0.2s ease-in-out);
-    &:hover{
-      color:$orange;
-    }
-    
-    .fa{
-      margin-left:3px;
-      color:$blue-light;
+      .fa{
+        margin-left:3px;
+        color:$blue-light;
+      }
     }
   }
   
   /*Ease in transition for navigation drop down*/
   .open {    
     a.primary-focus{
-      border:none;
-      border-bottom:none;
-      padding:0 0 10px 0;
+      padding:10px 20px;
+      background:#fff;
+      color:$blue;
+      border:0;
       position:relative;
       z-index:2000;
     }
     .dropdown-menu{      
       opacity:1;
-      margin-top:15px;
+      margin-top:10px;
       visibility:visible;
     }
   }
@@ -115,10 +115,10 @@ nav{
     .dropdown-menu{
       background:$white;
       border:1px solid $blue;
-      margin:10px 0 0 -15px;
+      margin:5px 0 0 0;
       padding:5px 0 5px;
-      @include border-bottom-right-radius(4px);
-      @include box-shadow(none);
+      @include border-radius(0);
+      @include box-shadow(0 5px 10px -5px $body);
       @include transition(all 0.1s ease-in-out);      
       opacity:0;
       visibility:hidden;
@@ -133,7 +133,7 @@ nav{
           color:$blue;
           font-weight:500;
           letter-spacing:0.04em;
-          padding:0 15px;
+          padding:0 20px;
         
           &:hover, &:hover::after{
             color:$orange !important;
@@ -164,9 +164,9 @@ nav{
   margin-bottom:10px !important;
 }
 .nav-contact{
-  font-size:0.85em;
+  font-size:0.9em;
   margin-top:5px;
-  margin-bottom:15px;
+  margin-bottom:0;
   color:$grey;
   letter-spacing:0.03em;
   
