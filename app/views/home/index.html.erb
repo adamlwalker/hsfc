@@ -1,4 +1,12 @@
-<img class="img-responsive" src="http://i.imgur.com/82eb12G.jpg" />
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <% @images.each_with_index do |image, i| %>
+      <div class="item <%= 'active' if i == 0 %>" style="background-image:url('<%= image.file.url %>');">
+        
+      </div>
+    <% end %>
+  </div>
+</div>
 <div class="hidden-xs">
   <ul class="nav nav-tabs">
     <li class="active"><a class="adoptees-tab" id="adoptees-tab-dog" href="#tab1" data-toggle="tab">Dogs</a>
