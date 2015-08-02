@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 describe AnimalHelper do
+  describe '#animal_path' do
+    it 'returns a url when :url is true' do
+      expect(helper.animal_path('Dog', '1234', url: true)).to eq(helper.dog_url('1234'))
+    end
+
+    it 'returns small_animal_path for Small & Furry' do
+      expect(helper.animal_path('Small & Furry', '1234')).to eq(helper.small_animal_path('1234'))
+    end
+  end
+
   describe '#gender_label' do
     it 'returns Male for M' do
       expect(helper.gender_label('M')).to eq('Male')

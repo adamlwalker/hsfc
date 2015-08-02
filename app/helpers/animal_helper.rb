@@ -1,4 +1,16 @@
 module AnimalHelper
+  def animal_path(animal_type, animal_id, options={})
+    animal_path = if animal_type == 'Small & Furry'
+      'small_animal'
+    else
+      animal_type.downcase
+    end
+
+    path_type = options[:url] ? 'url' : 'path'
+
+    send("#{animal_path}_#{path_type}", animal_id)
+  end
+
   def gender_label(letter)
     if letter == 'F'
       'Female'
