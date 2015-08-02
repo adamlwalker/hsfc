@@ -237,6 +237,13 @@ footer{
   }
 }
 
+.alert {
+  left: 15%;
+  position: fixed;
+  width: 70%;
+  z-index: 99;
+}
+
 .animal-listing {
   .animal {
     margin-bottom: 30px;
