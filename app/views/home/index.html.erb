@@ -1,4 +1,4 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="4500">
   <div class="carousel-inner" role="listbox">
     <% @images.each_with_index do |image, i| %>
       <div class="item <%= 'active' if i == 0 %>" style="background-image:url('<%= image.file.url %>');"></div>
@@ -37,7 +37,7 @@
                     <a href="/adopt/dogs"><button type="button" class="btn btn-primary btn-lg">See All Our Adoptable Dogs</button></a>
                   </div>
                 </div>
-                                
+
             </div>
         </div>
         <div class="tab-pane" id="tab2">
@@ -105,40 +105,5 @@
             </div>
   </div>
 </div>
-<div class="hidden-lg hidden-md hidden-sm">
-<div class="container">
-<div class="row home-petrow center-block text-center">
-<div class="animal col-xs-12">
-        <a href="/adopt/dogs">
-            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/27502704/1/?bust=1381253947&amp;width=500&amp;-x.jpg">
-          <h4>Adoptable Dogs</h4>
-</a>
-      </div>
-      <div class="animal col-xs-12">
-        <a href="/adopt/cats">
-            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/13615608/1/?bust=1328558638&amp;width=500&amp;-x.jpg">
-          <h4>Adoptable Cats</h4>
-</a>
-      </div>
-      <div class="animal col-xs-12">
-        <a href="/adopt/horses">
-            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/11759781/1/?bust=1291052096&amp;width=500&amp;-x.jpg">
-          <h4>Adoptable Horses</h4>
-</a>
-      </div>
-      <div class="animal col-xs-12">
-        <a href="/adopt/rabbits">
-            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/17994165/1/?bust=1298396191&amp;width=500&amp;-x.jpg">
-          <h4>Adoptable Rabbits</h4>
-</a>
-      </div>
-      <div class="animal col-xs-12">
-        <a href="/adopt/small_animals">
-            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/31787408/1/?bust=1433791014&amp;width=500&amp;-x.jpg">
-          <h4>Adoptable Small Animals</h4>
-</a>
-      </div>
-</div>
-</div>
-</div>
+
 
