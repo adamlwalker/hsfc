@@ -46,7 +46,11 @@ nav{
 }
 .hsfc-navigation{
   list-style:none;
+<<<<<<< HEAD
   margin:0 -20px 0 0;
+=======
+  margin:25px -25px 0 0;
+>>>>>>> master
   padding:0;
   letter-spacing:0.01em;
   &:hover > li > a, &:hover > li > button{
@@ -57,16 +61,18 @@ nav{
   li.primary-nav{
     display:inline;
     margin-left:0;
-    font-size:1.25em;
+
+    font-size:1.5em;
     font-weight:600;
 
     a.dropdown-toggle, a{
-      padding:10px 20px;
+      padding:10px;
+      margin-left:60px;
       cursor:pointer;
       color:$blue;
       @include transition(all 0.2s ease-in-out);
       &:hover{
-        color:$green;
+        color:$red;
       }
     
       .fa{
@@ -79,7 +85,7 @@ nav{
   /*Ease in transition for navigation drop down*/
   .open {    
     a.primary-focus{
-      padding:10px 20px;
+      padding:10px 10px;
       background:#fff;
       color:$blue;
       border:0;
@@ -88,12 +94,11 @@ nav{
     }
     .dropdown-menu{      
       opacity:1;
-      margin-top:10px;
+      margin-top:-50px !important;
       visibility:visible;
     }
   }
   li{
-    margin:0 0 0 25px;
     display:inline-block;
     @include transition(all 0.2s ease-in-out);
     &:hover{      
@@ -101,6 +106,7 @@ nav{
     }
     a, button{
       padding:0 0 0 0;
+      margin:0;
       color:$blue;
       letter-spacing:0.04em;
       background:transparent !important;
@@ -115,28 +121,30 @@ nav{
     .dropdown-menu{
       background:$white;
       border:1px solid $blue;
-      margin:5px 0 0 0;
-      padding:5px 0 5px;
-      @include border-radius(0);
-      @include box-shadow(0 5px 10px -5px $body);
+      margin:-55px 0 0 50px !important;
+      padding:50px 0 5px !important;
+      @include border-radius(4px);
+      @include box-shadow(0 5px 10px -7px #111);
       @include transition(all 0.1s ease-in-out);      
       opacity:0;
+      left:0 !important;
+      right:auto !important;
       visibility:hidden;
       display:block;
             
       li{
         display:block;
-        padding:5px 0 5px 0;
-        margin:0;
+        padding:5px 0 5px 0 !important;
       
         a{
           color:$blue;
           font-weight:500;
           letter-spacing:0.04em;
           padding:0 20px;
+          margin:0;
         
           &:hover, &:hover::after{
-            color:$orange !important;
+            color:$red !important;
             background:none;
           }
         }
@@ -221,6 +229,13 @@ footer{
   }
 }
 
+.alert {
+  left: 15%;
+  position: fixed;
+  width: 70%;
+  z-index: 99;
+}
+
 .animal-listing {
   .animal {
     margin-bottom: 30px;
@@ -241,6 +256,7 @@ footer{
     margin-top: 10px;
   }
 }
+
 
 
 /* INDEX NAV TABS */
@@ -300,4 +316,10 @@ height:200px;
 .nav-tabs > li {
 background-color:transparent;
 border:none;
+=======
+.social-share {
+  .social-share-more {
+    vertical-align: top;
+  }
+
 }

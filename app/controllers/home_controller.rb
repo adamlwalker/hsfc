@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   before_filter :find_shelter, only: [:dogs, :cats, :rabbits, :small_animals, :horses]
 
   def index
-    @images = Comfy::Cms::File.all
+    @images = Comfy::Cms::File.where(file_content_type: "image/jpeg")
     @articles = Comfy::Cms::Page.where('label ~* ?', 'news').last(3).reverse
     @dogs = select_pets('Dog')
     @cats = select_pets('Cat')
