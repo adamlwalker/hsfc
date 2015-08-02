@@ -303,9 +303,8 @@ ActiveRecord::Schema.define(version: 20150801220321) do
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.integer  "position"
-    t.integer  "adoption_form_type_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "hint_text"
     t.integer  "parent_id"
     t.boolean  "answer_by_applicant"
