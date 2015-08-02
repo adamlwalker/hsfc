@@ -1,0 +1,30 @@
+<h3 class="event-title">Add an Event</h3>
+
+<div class="container">
+  <%= form_for @event do |f| %>
+    <div class="row">
+      <div class="form-group col-md-6 col-md-offset-1">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= f.label :date%>
+        <%= f.text_field :date, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-10 col-md-offset-1">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control', rows: "10" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-10 col-md-offset-1">
+        <%= f.submit class: "btn btn-default event-submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>
