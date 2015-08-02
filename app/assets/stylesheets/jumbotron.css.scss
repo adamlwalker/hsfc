@@ -8,6 +8,7 @@
     background-repeat: no-repeat;
     color: white;
     height: 600px;
+    background-image: url(/system/comfy/cms/files/files/000/000/002/original/animal-dog-pet-brown.jpg);
 
     &.kittens {
       background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/7d/4_Kittens.jpg);
@@ -19,6 +20,11 @@
 }
 
 .donate {
+  position: relative;
+  width: 500px;
+  background-color: rgba(194, 178, 128,.3);
+  float: right;
+  padding: 15px 0 15px 15px;
 }
 
 .donate p {
