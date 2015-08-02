@@ -277,13 +277,6 @@ ActiveRecord::Schema.define(version: 20150802012155) do
 
   add_index "form_types", ["pet_type_id"], name: "index_form_types_on_pet_type_id", using: :btree
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "distance"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pet_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -293,7 +286,6 @@ ActiveRecord::Schema.define(version: 20150802012155) do
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.integer  "position"
-    t.integer  "application_type_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.string   "input_type"
@@ -305,7 +297,7 @@ ActiveRecord::Schema.define(version: 20150802012155) do
 
   create_table "responses", force: :cascade do |t|
     t.integer  "question_id"
-    t.integer  "application_id"
+    t.integer  "adoption_form_id"
     t.integer  "integer_response"
     t.string   "string_response"
     t.text     "text_response"
@@ -320,11 +312,11 @@ ActiveRecord::Schema.define(version: 20150802012155) do
   add_index "responses", ["submission_id"], name: "index_responses_on_submission_id", using: :btree
 
   create_table "submissions", force: :cascade do |t|
-    t.integer  "application_type_id_id"
+    t.integer  "adoption_form_type_id"
     t.integer  "applicant_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "form_type_id",           null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "form_type_id",          null: false
   end
 
   add_index "submissions", ["form_type_id"], name: "index_submissions_on_form_type_id", using: :btree
