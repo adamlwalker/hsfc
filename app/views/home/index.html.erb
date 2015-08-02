@@ -1,27 +1,138 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+<img class="img-responsive" src="http://i.imgur.com/82eb12G.jpg" />
+<div class="hidden-xs">
+  <ul class="nav nav-tabs">
+    <li class="active"><a class="adoptees-tab" id="adoptees-tab-dog" href="#tab1" data-toggle="tab">Dogs</a>
+    </li>
+    <li><a class="adoptees-tab" id="adoptees-tab-cat" href="#tab2" data-toggle="tab">Cats</a>
+    </li>
+    <li><a class="adoptees-tab" id="adoptees-tab-horse" href="#tab3" data-toggle="tab">Horses</a>
+    </li>
+    <li><a class="adoptees-tab" id="adoptees-tab-smallmammal" href="#tab4" data-toggle="tab">Others</a>
+    </li>
+</ul>
+  <div class="container">
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                <div class="row home-petrow">
 
-  <div class="carousel-inner" role="listbox">
-    <% @images.each_with_index do |image, i| %>
-      <div class="item <%= 'active' if i == 0 %>">
-        <%= image_tag(image.file.url, class: 'img-responsive') %>
-        <div class="carousel-caption">
-          <%= image.description %>
+                <%  @dogs[0..3].each do |dog| %>
+                <div class="animal col-md-3 col-sm-3">
+                  <a href="/adopt/dogs/<%= dog.id %>">
+                      <img class="img-thumbnail img-responsive" src=<%= dog.photos.first.large %>>
+                    <h4><%= dog.name %></h4>
+          </a>        <div><%= dog.breeds.join(", ") %></div>
+                </div>
+                <% end %>
+
+                </div>
+                <div class="row home-petrow">
+                  <div class="col-md-12 col-sm-12 center-block text-center">
+                    <a href="/adopt/dogs"><button type="button" class="btn btn-primary btn-lg">See All Our Adoptable Dogs</button></a>
+                  </div>
+                </div>
+                                
+            </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+        <div class="tab-pane" id="tab2">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                <div class="row home-petrow">
+           <%  @cats[0..3].each do |cat| %>
+                <div class="animal col-md-3 col-sm-3">
+                  <a href="/adopt/cats/<%= cat.id %>">
+                      <img class="img-thumbnail img-responsive" src=<%= cat.photos.first.large %>>
+                    <h4><%= cat.name %></h4>
+          </a>        <div><%= cat.breeds.join(", ") %></div>
+                </div>
+                <% end %>
+              </div>
+              <div class="row home-petrow">
+                  <div class="col-md-12 col-sm-12 center-block text-center">
+                    <a href="/adopt/cats"><button type="button" class="btn btn-primary btn-lg">See All Our Adoptable Cats</button></a>
+                  </div>
+                </div>
+            </div>
+          </div>
 
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+
+          <div class="tab-pane" id="tab3">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                <div class="row home-petrow">
+           <%  @horses[0..3].each do |horse| %>
+                <div class="animal col-md-3 col-sm-3">
+                  <a href="/adopt/horses/<%= horse.id %>">
+                      <img class="img-thumbnail img-responsive" src=<%= horse.photos.first.large %>>
+                    <h4><%= horse.name %></h4>
+          </a>        <div><%= horse.breeds.join(", ") %></div>
+                </div>
+                <% end %>
+              </div>
+              <div class="row home-petrow">
+                  <div class="col-md-12 col-sm-12 center-block text-center">
+                    <a href="/adopt/horses"><button type="button" class="btn btn-primary btn-lg">See All Our Adoptable Horses</button></a>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab4">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                <div class="row home-petrow">
+           <%  @rabbits[0..3].each do |rabbit| %>
+                <div class="animal col-md-3 col-sm-3">
+                  <a href="/adopt/rabbits/<%= rabbit.id %>">
+                      <img class="img-thumbnail img-responsive" src=<%= rabbit.photos.first.large %>>
+                    <h4><%= rabbit.name %></h4>
+          </a>        <div><%= rabbit.breeds.join(", ") %></div>
+                </div>
+                <% end %>
+              </div>
+              <div class="row home-petrow">
+                  <div class="col-md-12 col-sm-12 center-block text-center">
+                    <p><a href="/adopt/rabbits"><button type="button" class="btn btn-primary btn-lg">See All Our Adoptable Rabbits</button></a></p>
+                    <p><a href="/adopt/small_animals"><button type="button" class="btn btn-primary btn-lg">See All Our Other Adoptable Small Animals</button></a></p>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+            </div>
+  </div>
 </div>
+<div class="hidden-lg hidden-md hidden-sm">
+<div class="container">
+<div class="row home-petrow center-block text-center">
+<div class="animal col-xs-12">
+        <a href="/adopt/dogs">
+            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/27502704/1/?bust=1381253947&amp;width=500&amp;-x.jpg">
+          <h4>Adoptable Dogs</h4>
+</a>
+      </div>
+      <div class="animal col-xs-12">
+        <a href="/adopt/cats">
+            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/13615608/1/?bust=1328558638&amp;width=500&amp;-x.jpg">
+          <h4>Adoptable Cats</h4>
+</a>
+      </div>
+      <div class="animal col-xs-12">
+        <a href="/adopt/horses">
+            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/11759781/1/?bust=1291052096&amp;width=500&amp;-x.jpg">
+          <h4>Adoptable Horses</h4>
+</a>
+      </div>
+      <div class="animal col-xs-12">
+        <a href="/adopt/rabbits">
+            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/17994165/1/?bust=1298396191&amp;width=500&amp;-x.jpg">
+          <h4>Adoptable Rabbits</h4>
+</a>
+      </div>
+      <div class="animal col-xs-12">
+        <a href="/adopt/small_animals">
+            <img class="img-thumbnail img-responsive" src="http://photos.petfinder.com/photos/pets/31787408/1/?bust=1433791014&amp;width=500&amp;-x.jpg">
+          <h4>Adoptable Small Animals</h4>
+</a>
+      </div>
+</div>
+</div>
+</div>
+
