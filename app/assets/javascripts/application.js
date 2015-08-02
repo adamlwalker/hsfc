@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
+//= require 'social_share'
 //= require turbolinks
 //= require_tree .
 
