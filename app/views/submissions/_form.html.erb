@@ -1,0 +1,16 @@
+<%= form_for @submission do |f| %>
+  <%=  f.hidden_field :form_type_id %>
+
+  <%= fields_for :responses do |ff| %>
+    <% @questions.each do |q|  %>
+      <div>
+        <%= q.content %>
+        <% if q.input_type == "text" %>
+           <%= ff.text_field :string_response %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

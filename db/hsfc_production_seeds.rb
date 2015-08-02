@@ -633,8 +633,8 @@ FormTypeQuestion.where(question_id: 153, form_type_id: 1).first_or_create!
 FormTypeQuestion.where(question_id: 153, form_type_id: 5).first_or_create!
 FormTypeQuestion.where(question_id: 153, form_type_id: 4).first_or_create!
 
-Submission.where(id: 1, applicant_id: 1, form_type_id: 2).first_or_create!
-Submission.where(id: 2, applicant_id: 2, form_type_id: 3).first_or_create!
+Submission.where(id: 1).first_or_create!(applicant_id: 1, form_type_id: 2)
+Submission.where(id: 2).first_or_create!(applicant_id: 2, form_type_id: 3)
 
 Response.where(submission_id: 1, question_id: 151, boolean_response: TRUE).first_or_create!
 Response.where(submission_id: 1, question_id: 152, string_response: "Wonderful person!").first_or_create!
