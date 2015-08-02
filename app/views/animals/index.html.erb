@@ -6,7 +6,7 @@
         <div class='clearfix'></div>
       <%end%>
       <div class="animal col-xs-3">
-        <%= link_to send("#{animal.animal.gsub(' & Furry', '_animal').downcase}_path", animal.id) do %>
+        <%= link_to animal_path(animal.animal, animal.id) do %>
           <%- if animal.photos.present? %>
             <img class='img-thumbnail' src=<%= animal.photos.first.large %> />
           <%- else %>
