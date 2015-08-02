@@ -25,7 +25,7 @@
                 <%  @dogs[0..3].each do |dog| %>
                 <div class="animal col-md-3 col-sm-3">
                   <a href="/adopt/dogs/<%= dog.id %>">
-                      <img class="img-thumbnail img-responsive" src=<%= dog.photos.first.large %>>
+                      <div class="animal-img" style="background-image:url('<%= dog.photos.first.large %>')" ></div>
                     <h4><%= dog.name %></h4>
           </a>        <div><%= dog.breeds.join(", ") %></div>
                 </div>
@@ -46,7 +46,7 @@
            <%  @cats[0..3].each do |cat| %>
                 <div class="animal col-md-3 col-sm-3">
                   <a href="/adopt/cats/<%= cat.id %>">
-                      <img class="img-thumbnail img-responsive" src=<%= cat.photos.first.large %>>
+                      <div class="animal-img" style="background-image:url('<%= cat.photos.first.large %>')" ></div>
                     <h4><%= cat.name %></h4>
           </a>        <div><%= cat.breeds.join(", ") %></div>
                 </div>
@@ -67,7 +67,7 @@
            <%  @horses[0..3].each do |horse| %>
                 <div class="animal col-md-3 col-sm-3">
                   <a href="/adopt/horses/<%= horse.id %>">
-                      <img class="img-thumbnail img-responsive" src=<%= horse.photos.first.large %>>
+                      <div class="animal-img" style="background-image:url('<%= horse.photos.first.large %>')" ></div>
                     <h4><%= horse.name %></h4>
           </a>        <div><%= horse.breeds.join(", ") %></div>
                 </div>
@@ -87,7 +87,7 @@
            <%  @rabbits[0..3].each do |rabbit| %>
                 <div class="animal col-md-3 col-sm-3">
                   <a href="/adopt/rabbits/<%= rabbit.id %>">
-                      <img class="img-thumbnail img-responsive" src=<%= rabbit.photos.first.large %>>
+                      <div class="animal-img" style="background-image:url('<%= rabbit.photos.first.large %>')" ></div>
                     <h4><%= rabbit.name %></h4>
           </a>        <div><%= rabbit.breeds.join(", ") %></div>
                 </div>
