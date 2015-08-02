@@ -1,0 +1,11 @@
+---
+label: about
+layout: about
+parent: index
+target_page: 
+categories: []
+is_published: true
+position: 5
+cached_timeout: 0
+aasm_state: published
+published_date: 
