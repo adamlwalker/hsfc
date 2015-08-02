@@ -302,23 +302,24 @@ footer{
 
 .adoptees-tab {
   width:90px;
+  background:$blue;
+  @include transition(all 0.2s ease-in-out);
+  opacity:1;
+  &:hover{
+    opacity:0.9;
+    color:$body !important;
+  }
+  
+}
+li.active{
+  
+  .adoptees-tab{
+    background-color:$white !important;
+    color:$body !important;
+  }
 }
 
-#adoptees-tab-dog {
-  background-color:#356034;
-}
 
-#adoptees-tab-cat {
-  background-color:#fa8e00;
-}
-
-#adoptees-tab-horse {
-  background-color:#3751a7;
-}
-
-#adoptees-tab-smallmammal {
-  background-color:#cc1a3b;
-}
 
 .home-petrow {
   margin-top:1.3em;
