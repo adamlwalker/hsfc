@@ -1,4 +1,7 @@
 class SubmissionsController < ApplicationController
+  # TODO add the 'rest' of the controller actions
+  # TODO add the logic for admin_only questions in the form
+
   def new
     @submission = Submission.new_with_responses( params[:form_type_id] )
   end
@@ -14,7 +17,7 @@ class SubmissionsController < ApplicationController
 
 
   private def submission_params
-    # FIXME
+    # FIXME add 'response attributes'
     params.require(:submission).permit! # (:date, :title, :description)
   end
 end
