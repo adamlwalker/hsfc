@@ -1,7 +1,13 @@
 # To load production data on empty database at app launch, use $ rails r db/hsfc_production_seeds.rb
 
+connection = ActiveRecord::Base.connection
+
 Applicant.where(id: 1,  first_name: "Valerie", last_name: "Woolard").first_or_create!
 Applicant.where(id: 2,  first_name: "Mae",     last_name: "Beale").first_or_create!
+
+# set sequence to continue after creating the above records
+sql = "ALTER SEQUENCE applicants_id_seq RESTART WITH #{Applicant.maximum('id') + 1}"
+connection.execute(sql)
 
 PetType.where(id: 1,    name: 'dog').first_or_create!
 PetType.where(id: 2,    name: 'cat').first_or_create!
@@ -10,12 +16,20 @@ PetType.where(id: 4,    name: 'small mammal').first_or_create!
 PetType.where(id: 5,    name: 'rabbit').first_or_create!
 PetType.where(id: 6,    name: 'bird').first_or_create!
 
+# set sequence to continue after creating the above records
+sql = "ALTER SEQUENCE pet_types_id_seq RESTART WITH #{PetType.maximum('id') + 1}"
+connection.execute(sql)
+
 FormType.where(id: 1,   pet_type_id: 1).first_or_create!
 FormType.where(id: 2,   pet_type_id: 2).first_or_create!
 FormType.where(id: 3,   pet_type_id: 3).first_or_create!
 FormType.where(id: 4,   pet_type_id: 4).first_or_create!
 FormType.where(id: 5,   pet_type_id: 5).first_or_create!
 FormType.where(id: 6,   pet_type_id: 6).first_or_create!
+
+# set sequence to continue after creating the above records
+sql = "ALTER SEQUENCE form_types_id_seq RESTART WITH #{FormType.maximum('id') + 1}"
+connection.execute(sql)
 
 Question.reset_column_information
 Question.where(id: 1,   position: 5,    input_type: "textarea",  admin_only_question: TRUE, content: "Reviewer's initials").first_or_create!
@@ -166,6 +180,9 @@ Question.where(id: 151, position: 1360, input_type: "radio",     admin_only_ques
 Question.where(id: 152, position: 1370, input_type: "text",      admin_only_question: TRUE, parent_id: 1360, content: "Why?").first_or_create!
 Question.where(id: 153, position: 1380, input_type: "text",      admin_only_question: TRUE, content: "Comments").first_or_create!
 
+# set sequence to continue after creating the above records
+sql = "ALTER SEQUENCE questions_id_seq RESTART WITH #{Question.maximum('id') + 1}"
+connection.execute(sql)
 
 FormTypeQuestion.where(question_id: 1,   form_type_id: 1).first_or_create!
 FormTypeQuestion.where(question_id: 1,   form_type_id: 2).first_or_create!
@@ -635,6 +652,10 @@ FormTypeQuestion.where(question_id: 153, form_type_id: 4).first_or_create!
 
 Submission.where(id: 1).first_or_create!(applicant_id: 1, form_type_id: 2)
 Submission.where(id: 2).first_or_create!(applicant_id: 2, form_type_id: 3)
+
+# set sequence to continue after creating the above records
+sql = "ALTER SEQUENCE submissions_id_seq RESTART WITH #{Submission.maximum('id') + 1}"
+connection.execute(sql)
 
 Response.where(submission_id: 1, question_id: 151, boolean_response: TRUE).first_or_create!
 Response.where(submission_id: 1, question_id: 152, string_response: "Wonderful person!").first_or_create!
