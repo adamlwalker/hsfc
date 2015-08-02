@@ -163,40 +163,40 @@ Question.where(id: 91,  position: 848,  input_type: "radio",     admin_only_ques
 Question.where(id: 92,  position: 850,  input_type: "date",      admin_only_question: FALSE, content: "If approved, when would you like to take your pet home?").first_or_create!
 Question.where(id: 93,  position: 860,  input_type: "none",      admin_only_question: FALSE, content: "Which of these subjects would you like to learn more about?").first_or_create!
 Question.where(id: 94 ).first_or_create!(position: 880, #dog
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Which of these subjects would you like to learn more about?",
                                          option_list: "{House Training, Heartworm prevention, Obedience, Behavioral problems,
                                                         Feeding,
                                                         Introducing new pets to pets at home, Grooming, Fleas, Household dangers, Other}")
 Question.where(id: 95 ).first_or_create!(position: 870, #cat
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Which of these subjects would you like to learn more about?",
                                          option_list: "{House Training, Litter,
                                                         Scratching/Declawing, Feeding, Upper Respiratory Infections, Feline Leukemia, Feline Aids, Urinary Problems,
                                                         Introducing new pets to pets at home, Household dangers, Other}")
 Question.where(id: 96 ).first_or_create!(position: 890, #horse
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Which of these subjects would you like to learn more about?",
                                          option_list: "{Grooming, Other}")
 Question.where(id: 97 ).first_or_create!(position: 900, #small mammal
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Which of these subjects would you like to learn more about?",
                                          option_list: "{Litter,
                                                         Feeding,
                                                         Introducing new pets to pets at home, Grooming, Household dangers, Other}")
 Question.where(id: 98 ).first_or_create!(position: 910, #rabbit
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Which of these subjects would you like to learn more about?",
                                          option_list: "{Litter,
                                                         Feeding,
                                                         Introducing new pets to pets at home, Grooming, Household dangers, Other}")
 Question.where(id: 99 ).first_or_create!(position: 920, #bird
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Which of these subjects would you like to learn more about?",
                                          option_list: "{Obedience,
@@ -205,38 +205,38 @@ Question.where(id: 99 ).first_or_create!(position: 920, #bird
 
 Question.where(id: 109, position: 870,  input_type: "textarea", admin_only_question: FALSE, parent_id: 110, content: "If other, please describe").first_or_create!
 Question.where(id: 110).first_or_create!(position: 970, #dog
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Please check the type of pet(s) you'd like",
                                          option_list: "{Adult animal, Young animal, Companion for another pet, Two new compatible pets, Particular breed,
                                                         Children’s pet, Short hair, Long hair, Affectionate lap animal}")
 Question.where(id: 111).first_or_create!(position: 980, #cat
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Please check the type of pet(s) you'd like",
                                          option_list: "{Adult animal, Young animal, Companion for another pet, Two new compatible pets, Particular breed,
                                                         Children’s pet, Short hair, Long hair, Affectionate lap animal, Affectionate animal,
                                                         Inside Cat, Outside Cat, Declawed Cat}")
 Question.where(id: 112).first_or_create!(position: 990, #horse
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Please check the type of pet(s) you'd like",
                                          option_list: "{Adult animal, Young animal, Companion for another pet, Two new compatible pets, Particular breed,
                                                         Children’s pet, Affectionate animal}")
 Question.where(id: 113).first_or_create!(position: 1000, #small mammal
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Please check the type of pet(s) you'd like",
                                          option_list: "{Adult animal, Young animal, Companion for another pet, Two new compatible pets, Particular breed,
                                                         Children’s pet, Short hair, Long hair, Affectionate lap animal, Affectionate animal}")
 Question.where(id: 114).first_or_create!(position: 1010, #rabbit
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Please check the type of pet(s) you'd like",
                                          option_list: "{Adult animal, Young animal, Companion for another pet, Two new compatible pets, Particular breed,
                                                         Children’s pet, Short hair, Long hair, Affectionate animal}")
 Question.where(id: 115).first_or_create!(position: 1020, #bird
-                                         input_type: "select",
+                                         input_type: "checkbox",
                                          admin_only_question: FALSE,
                                          content: "Please check the type of pet(s) you'd like",
                                          option_list: "{Adult animal, Young animal, Companion for another pet, Two new compatible pets, Particular breed,
