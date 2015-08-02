@@ -14,6 +14,10 @@
       </div>
 
       <div class='col-xs-12 col-md-5'>
+        <%- if @animal.photos.present? %>
+          <div class='pull-right'><%= social_share("#{@animal.name}, an adoptable #{@animal.animal.downcase} from Humane Society of Fairfax County", animal_path(@animal.animal, @animal.id, url: true), services: [:facebook, :twitter, :google_plus, :pinterest], image: @animal.photos.first.large) %></div>
+        <% end %>
+        <div class='clearfix'></div>
         <%= render partial: 'animal_info', locals: {description_label: 'Age', description_value: @animal.age} %>
         <%= render partial: 'animal_info', locals: {description_label: 'Gender', description_value: gender_label(@animal.sex)} %>
         <%= render partial: 'animal_info', locals: {description_label: 'Breed(s)', description_value: @animal.breeds.join(", ")} %>

@@ -650,8 +650,8 @@ FormTypeQuestion.where(question_id: 153, form_type_id: 1).first_or_create!
 FormTypeQuestion.where(question_id: 153, form_type_id: 5).first_or_create!
 FormTypeQuestion.where(question_id: 153, form_type_id: 4).first_or_create!
 
-Submission.where(id: 1, applicant_id: 1, form_type_id: 2).first_or_create!
-Submission.where(id: 2, applicant_id: 2, form_type_id: 3).first_or_create!
+Submission.where(id: 1).first_or_create!(applicant_id: 1, form_type_id: 2)
+Submission.where(id: 2).first_or_create!(applicant_id: 2, form_type_id: 3)
 
 # set sequence to continue after creating the above records
 sql = "ALTER SEQUENCE submissions_id_seq RESTART WITH #{Submission.maximum('id') + 1}"
