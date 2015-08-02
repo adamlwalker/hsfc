@@ -4,6 +4,6 @@ class CreateQuestionAdoptionFormTypes < ActiveRecord::Migration
       t.references :question
       t.references :adoption_form_type
     end
-    #remove_column :questions, :adoption_form_type_id
+    remove_column :questions, :adoption_form_type_id
   end
 end
