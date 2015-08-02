@@ -1,3 +1,5 @@
+@import 'variables';
+
 .jumbotron {
     margin-bottom: 0px;
     background-image: url(/system/comfy/cms/files/files/000/000/001/original/animal-dog-pet-brown.jpg);
@@ -7,6 +9,14 @@
     color: white;
     text-shadow: black 0.3em 0.3em 0.3em;
     height: 600px;
+
+    &.kittens {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/7d/4_Kittens.jpg);
+    }
+
+    a {
+      color: $white;
+    }
 }
 
 .donate {

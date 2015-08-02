@@ -12,6 +12,15 @@ describe AnimalsController, type: :controller do
     allow(Petfinder::Client).to receive(:new).and_return(client)
   end
 
+  describe 'with error from Petfinder API' do
+    it 'redirects to home page' do
+      allow(client).to receive(:shelter_pets).with('VA163', count: 1000).and_raise(Petfinder::Error)
+      get :dogs
+      expect(response).to redirect_to '/'
+      expect(flash[:alert]).to be_present
+    end
+  end
+
   describe '#dogs' do
     it 'finds the shelter pets' do
       expect(client).to receive(:shelter_pets).with('VA163', count: 1000)
