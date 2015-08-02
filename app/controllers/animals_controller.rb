@@ -51,11 +51,15 @@ class AnimalsController < ApplicationController
   end
 
   def find_shelter
-    @pets ||= petfinder_client.shelter_pets(SHELTER_ID, count: 1000)
+    with_error_handling do
+      @pets ||= petfinder_client.shelter_pets(SHELTER_ID, count: 1000)
+    end
   end
 
   def find_pet
-    @animal = petfinder_client.pet(params[:petfinder_id])
+    with_error_handling do
+      @animal = petfinder_client.pet(params[:petfinder_id])
+    end
   end
 
   def find_and_render_pet
@@ -64,6 +68,13 @@ class AnimalsController < ApplicationController
   end
 
   def select_pets(pet_type)
-    @animals = @pets.select { |pet| pet.animal ==  pet_type }
+    @animals = @pets.select { |pet| pet.animal == pet_type }
+  end
+
+  def with_error_handling
+    yield
+  rescue Petfinder::Error
+    flash[:alert] = 'Information is currently unavailable, try again later.'
+    redirect_to root_url and return
   end
 end

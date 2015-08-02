@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HsfcRubyforgood</title>
+  <title>Humane Society of Fairfax County</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'jumbotron', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -10,6 +10,7 @@
 </head>
 <body>
   <div class="wrap">
+    <%= render 'layouts/flash' if flash.present? %>
     <%= render 'layouts/header' %>
     <%= yield %>
   </div>

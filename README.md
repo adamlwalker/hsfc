@@ -19,8 +19,15 @@ Look for Petfinder credentials in Slack channel and add to .env file.
 ## cms-admin credentials
     username: admin@rubyforgood.com
     password: password
+    
+  or 
+  
+    username: admin@cmsfortress.com
+    password: 1234qwer
 
 ## Managing non-application code (CMS Fixtures):
+
+When you login for the first time, create a site called 'localhost' before attempting the import.
 
 After pulling latest changes from the remote you need to **import** the fixture files into your local db.
 
