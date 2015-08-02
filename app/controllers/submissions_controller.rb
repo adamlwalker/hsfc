@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   def new
-    @submission = Submission.new_with_build_answers( 1 )
+    @submission = Submission.new_with_responses( params[:form_type_id] )
   end
 
   def create
