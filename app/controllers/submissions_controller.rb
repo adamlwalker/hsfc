@@ -1,8 +1,6 @@
 class SubmissionsController < ApplicationController
   def new
     @submission = Submission.new_with_build_answers( 1 )
-    # @submission = Submission.new(form_type_id: 1)
-    # @submission.responses.build
   end
 
   def create
@@ -16,6 +14,7 @@ class SubmissionsController < ApplicationController
 
 
   private def submission_params
+    # FIXME
     params.require(:submission).permit! # (:date, :title, :description)
   end
 end
