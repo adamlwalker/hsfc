@@ -11,37 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801180608) do
+ActiveRecord::Schema.define(version: 20150802012155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "adoption_form_types", force: :cascade do |t|
-    t.integer  "pet_type_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "adoption_forms", force: :cascade do |t|
-    t.integer  "adoption_form_type_id"
-    t.integer  "applicant_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
   create_table "answer_types", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "answers", force: :cascade do |t|
-    t.integer  "question_id"
-    t.integer  "adoption_form_id"
-    t.integer  "integer_response"
-    t.string   "string_response"
-    t.text     "text_response"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.boolean  "boolean_response"
   end
 
   create_table "applicants", force: :cascade do |t|
@@ -280,31 +256,71 @@ ActiveRecord::Schema.define(version: 20150801180608) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
+  create_table "form_type_questions", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "adoption_form_type_id"
+    t.integer "form_type_id",          null: false
+  end
+
+  add_index "form_type_questions", ["form_type_id"], name: "index_form_type_questions_on_form_type_id", using: :btree
+  add_index "form_type_questions", ["question_id"], name: "index_form_type_questions_on_question_id", using: :btree
+
+  create_table "form_types", force: :cascade do |t|
+    t.integer  "pet_type_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "form_types", ["pet_type_id"], name: "index_form_types_on_pet_type_id", using: :btree
+
   create_table "pet_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "question_adoption_form_types", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "adoption_form_type_id"
-  end
-
-  create_table "question_options", force: :cascade do |t|
-    t.integer "question_id"
-    t.string  "option_text"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.integer  "position"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "hint_text"
+    t.integer  "application_type_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "input_type"
     t.integer  "parent_id"
-    t.boolean  "answer_by_applicant"
-    t.integer  "answer_type_id"
+    t.boolean  "admin_only_question"
+    t.string   "option_list",         default: [],              array: true
   end
 
+  create_table "responses", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "application_id"
+    t.integer  "integer_response"
+    t.string   "string_response"
+    t.text     "text_response"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.boolean  "boolean_response"
+    t.string   "date_response"
+    t.integer  "submission_id",    null: false
+  end
+
+  add_index "responses", ["question_id"], name: "index_responses_on_question_id", using: :btree
+  add_index "responses", ["submission_id"], name: "index_responses_on_submission_id", using: :btree
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "application_type_id"
+    t.integer  "applicant_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "form_type_id",        null: false
+  end
+
+  add_index "submissions", ["form_type_id"], name: "index_submissions_on_form_type_id", using: :btree
+
+  add_foreign_key "form_type_questions", "form_types"
+  add_foreign_key "form_type_questions", "questions"
+  add_foreign_key "form_types", "pet_types"
+  add_foreign_key "responses", "questions"
+  add_foreign_key "responses", "submissions"
+  add_foreign_key "submissions", "form_types"
 end
