@@ -31,15 +31,13 @@ footer, .wrap::after{
 /* Navigation */
 nav{
   border:none !important;
-  background:transparent !important;
-  margin-top:5px;
-  padding-bottom:10px;
+  background:$white !important;
   
   .logo{
-    width:140px;
-    height:63px;
+    width:150px;
+    height:68px;
     background-image:url(image_path('logo.jpg'));
-    background-size: 140px 63px;
+    background-size: 150px 68px;
     background-repeat:no-repeat;
     background-position:top left;
     margin-right:30px;
@@ -55,9 +53,11 @@ nav{
     
   }
   
+  
   li.primary-nav{
     display:inline;
     margin-left:0;
+
     font-size:1.5em;
     font-weight:600;
 
@@ -97,8 +97,8 @@ nav{
   li{
     display:inline-block;
     @include transition(all 0.2s ease-in-out);
-    &:hover > li > a, &:hover > li > button{
-      color:$grey !important;
+    &:hover{      
+      
     }
     a, button{
       padding:0 0 0 0;
@@ -162,27 +162,15 @@ nav{
     } 
   }
 }
-.navbar-default{
-  
-  .navbar-collapse{
-    border-color:transparent !important;
-  }
-}
 .nav-divider{
   border-bottom:1px solid $blue-light;
   background-color:$white !important;
   margin-bottom:10px !important;
 }
-.nav-contact-rule{
-  width:100%;
-  margin:10px 0 0 0;
-  padding:0 0 5px 0;
-  border-bottom:1px solid $grey-light;
-  display:inline-block;
-}
 .nav-contact{
-  font-size:0.8em;
-  
+  font-size:0.9em;
+  margin-top:5px;
+  margin-bottom:0;
   color:$grey;
   letter-spacing:0.03em;
   
@@ -273,8 +261,70 @@ footer{
   }
 }
 
+
+
+/* INDEX NAV TABS */
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+    color: #fff;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+    font-size:18px;
+}
+
+.nav-tabs > li > a, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color:#fff;
+}
+
+/* center tabs */
+.nav-tabs, .nav-pills {
+    text-align:center;
+    margin-top:-47px;
+}
+
+.adoptees-tab {
+  width:90px;
+}
+
+#adoptees-tab-dog {
+  background-color:#356034;
+}
+
+#adoptees-tab-cat {
+  background-color:#fa8e00;
+}
+
+#adoptees-tab-horse {
+  background-color:#3751a7;
+}
+
+#adoptees-tab-smallmammal {
+  background-color:#cc1a3b;
+}
+
+.home-petrow {
+  margin-top:1.3em;
+}
+
+.home-petrow .animal .img-thumbnail {
+width:200px;
+height:200px;
+}
+
+.nav-tabs > li {
+background-color:transparent;
+border:none;}
+
 .social-share {
   .social-share-more {
     vertical-align: top;
   }
+
 }
+
