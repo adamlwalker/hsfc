@@ -1,10 +1,19 @@
 <div class='container'>
   <div class='row'>
-    <% @articles.each do |article| %>
-      <h1><%= cms_block_render('title', article) %></h1>
-      <em><%= cms_block_render('date', article) %></em>
+  	<hr />
+  	<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+  		<div class='col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1'>
+  			<h2>Latest News</h2>
+  		</div>
+	    <% @articles.each do |article| %>
+	    <div class='col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1'>
+	      <h3><a href="<%= article.full_path %>"><%= cms_block_render('title', article) %></a></h3>
+	      <em><%= cms_block_render('date', article) %></em>
 
-      <p class='lead'><%= cms_block_render('body', article) %></p>
-    <% end %>
+	      <p><%= truncate(cms_block_render('body', article), length: 175) %></p>
+	      <%= link_to 'Read more', article.full_path %>
+	    </div>
+	    <% end %>
+	</div>
   </div>
 </div>
