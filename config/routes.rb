@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/adopt/dogs' => 'animals#dogs', as: :dogs_index
   get '/adopt/dogs/:petfinder_id' => 'animals#dog', as: :dog
+  get '/adopt/birds' => 'animals#birds', as: :birds_index
+  get '/adopt/birds/:petfinder_id' => 'animals#bird', as: :bird
   get '/adopt/cats' => 'animals#cats', as: :cats_index
   get '/adopt/cats/:petfinder_id' => 'animals#cat', as: :cat
   get '/adopt/rabbits' => 'animals#rabbits', as: :rabbits_index
