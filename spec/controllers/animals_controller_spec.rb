@@ -6,7 +6,8 @@ describe AnimalsController, type: :controller do
   let(:rabbit) { double(:rabbit, animal: 'Rabbit') }
   let(:small_animal) { double(:small_animal, animal: 'Small & Furry') }
   let(:horse) { double(:horse, animal: 'Horse') }
-  let(:client) { double(:client, shelter_pets: [dog, cat, rabbit, small_animal, horse], pet: dog) }
+  let(:bird) { double(:bird, animal: 'Bird') }
+  let(:client) { double(:client, shelter_pets: [dog, cat, rabbit, small_animal, horse, bird], pet: dog) }
 
   before do
     allow(Petfinder::Client).to receive(:new).and_return(client)
@@ -37,6 +38,26 @@ describe AnimalsController, type: :controller do
     it 'finds the pet' do
       get :dog, petfinder_id: '1234'
       expect(assigns(:animal)).to eq(dog)
+    end
+  end
+
+  describe '#birds' do
+    it 'finds the shelter pets' do
+      expect(client).to receive(:shelter_pets).with('VA163', count: 1000)
+      get :birds
+    end
+
+    it 'selects only the birds from the list of pets' do
+      get :birds
+      expect(assigns(:animals)).to eq([bird])
+    end
+  end
+
+  describe '#bird' do
+    it 'finds the pet' do
+      allow(client).to receive(:pet).and_return(bird)
+      get :bird, petfinder_id: '1234'
+      expect(assigns(:animal)).to eq(bird)
     end
   end
 

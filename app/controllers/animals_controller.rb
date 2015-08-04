@@ -1,8 +1,8 @@
 class AnimalsController < ApplicationController
   SHELTER_ID = 'VA163'
 
-  before_filter :find_shelter, only: [:dogs, :cats, :rabbits, :small_animals, :horses]
-  before_filter :find_and_render_pet, only: [:dog, :cat, :rabbit, :small_animal, :horse]
+  before_filter :find_shelter, only: [:dogs, :birds, :cats, :rabbits, :small_animals, :horses]
+  before_filter :find_and_render_pet, only: [:dog, :bird, :cat, :rabbit, :small_animal, :horse]
 
   def dogs
     select_pets('Dog')
@@ -10,6 +10,14 @@ class AnimalsController < ApplicationController
   end
 
   def dog
+  end
+
+  def birds
+    select_pets('Bird')
+    render 'index'
+  end
+
+  def bird
   end
 
   def cats
