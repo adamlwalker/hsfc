@@ -25,7 +25,9 @@
                     <div class="animal-img" style="background-image:url('<%= dog.photos.first.large %>')" ></div>
                     <h4><%= dog.name %></h4>
                 </a>
-              <div><%= dog.breeds.join(", ") %></div>
+                <p><small><%= dog.age %><br />
+                <% if dog.sex == 'M' %>Male<% else %>Female<% end %><br />
+                <%= dog.breeds.join(", ") %></small></p>
               </div>
               <% end %>
             </div>
@@ -48,7 +50,9 @@
                   <div class="animal-img" style="background-image:url('<%= cat.photos.first.large %>')" ></div>
                   <h4><%= cat.name %></h4>
                 </a>
-                <div><%= cat.breeds.join(", ") %></div>
+                <p><small><%= cat.age %><br />
+                <% if cat.sex == 'M' %>Male<% else %>Female<% end %><br />
+                <%= cat.breeds.join(", ") %></small></p>
               </div>
               <% end %>
             </div>
@@ -71,7 +75,9 @@
                   <div class="animal-img" style="background-image:url('<%= horse.photos.first.large %>')" ></div>
                   <h4><%= horse.name %></h4>
                 </a>
-                <div><%= horse.breeds.join(", ") %></div>
+                <p><small><%= horse.age %><br />
+                <% if horse.sex == 'M' %>Male<% else %>Female<% end %><br />
+                <%= horse.breeds.join(", ") %></small></p>
               </div>
               <% end %>
             </div>
@@ -94,7 +100,9 @@
                   <div class="animal-img" style="background-image:url('<%= rabbit.photos.first.large %>')" ></div>
                   <h4><%= rabbit.name %></h4>
                 </a>
-                <div><%= rabbit.breeds.join(", ") %></div>
+                <p><small><%= rabbit.age %><br />
+                <% if rabbit.sex == 'M' %>Male<% else %>Female<% end %><br />
+                <%= rabbit.breeds.join(", ") %></small></p>
               </div>
               <% end %>
             </div>
