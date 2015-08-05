@@ -1,25 +1,36 @@
-<div class="animal-listing container">
-  <%- if @animals.present? %>
+<div class="container">
   <div class="row">
-    <%- @animals.each_with_index do |animal, index| %>
-      <%- if index % 4 == 0 %>
-        <div class='clearfix'></div>
-      <%end%>
-      <div class="animal col-xs-3">
-        <%= link_to animal_path(animal.animal, animal.id) do %>
-          <%- if animal.photos.present? %>
-            <div class="animal-img" style="background-image:url('<%= animal.photos.first.large %>')" ></div>
-          <%- else %>
-            <em class='text-center'>No image available</em>
-          <% end %>
-          <h4><%= animal.name %></h4>
-        <%end%>
-        <div><%= animal.breeds.join(", ") %></div>
-      </div>
-    <%end%>
+    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+      <h1>Adoptable <%= controller.action_name.gsub('_', ' ').titleize %> </h1>
+    </div>
+    <div class='clearfix'></div>
   </div>
-
+  <div class="row">
+  <%- if @animals.present? %>
+  <%- @animals.each_with_index do |animal, index| %>
+  <%- if index % 3 == 0 %>
+    <div class='clearfix'></div>
+  <% end %>
+    <div style="margin-bottom:2.5em;" class="animal col-md-3 col-sm-3 col-xs-10 col-xs-offset-1">
+      <%= link_to animal_path(animal.animal, animal.id) do %>
+        <%- if animal.photos.present? %>
+          <div class="animal-img" style="background-image:url('<%= animal.photos.first.large %>')" ></div>
+        <%- else %>
+          <em class='text-center'>No image available</em>
+        <% end %>
+        <hr />
+        <h2><%= animal.name %></h2>
+      <% end %>
+        <p><%= animal.age %><br />
+        <% if animal.sex == 'M' %>Male<% else %>Female<% end %><br />
+        <%= animal.breeds.join(", ") %></p>
+        <hr /> 
+    </div>
+  <%end%>
   <%- else %>
-    No <%= controller.action_name.gsub('_', ' ') %> currently available!
+    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+      <p>No <%= controller.action_name.gsub('_', ' ') %> currently available!</p>
+    </div>
   <% end%>
+  </div>
 </div>
