@@ -1,0 +1,15 @@
+= form.text_field :last_name
+= form.text_field :first_name
+= form.text_field :email
+
+- unless @super_user
+  = form.select :role_id, @site.roles.collect {|role| [role.name, role.id]}
+- if @cms_fortress_user.new_record?
+  = form.hidden_field :type_id
+
+= form.password_field :password
+= form.password_field :password_confirmation
+
+= form.form_group :class => 'form-actions' do
+  = form.submit @cms_fortress_user.new_record? ? t('cms.fortress.create') : t('cms.fortress.update'), :class => 'btn btn-primary'
+

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 
-gem 'cms-fortress', '~> 1.3.6'
+gem 'cms-fortress', :path => 'vendor/gems/cms-fortress-1.3.9'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
 gem 'comfy_blog', '~> 1.12.0'

@@ -1,5 +1,5 @@
 default: &default
-  title: "CMS Fortress"
+  title: "Humane Society of Fairfax County"
   title_link: "#"
   use_tinymce: false
 
