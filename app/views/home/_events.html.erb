@@ -1,0 +1,18 @@
+<div class="home-events panel panel-default">
+  <div class="panel-body">
+    <% @events.each_with_index do |e, i| %>
+      <% if (i > 0) %>
+        <div class="separator clearfix"></div>
+      <% end %>
+      <div class="event">
+        <div class="title">
+          <%= e.title %>
+        </div>
+        <div class="date"><%= e.date %></div>
+        <p>
+          <%= e.description %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

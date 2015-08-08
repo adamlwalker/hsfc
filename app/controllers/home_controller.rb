@@ -11,6 +11,7 @@ class HomeController < ApplicationController
     @cats = select_pets('Cat')
     @horses = select_pets('Horse')
     @rabbits = select_pets('Rabbit')
+    @events = Event.last(3)
 
     render cms_layout: 'base', cms_blocks: {
       carousel: { template: '/home/index' },
