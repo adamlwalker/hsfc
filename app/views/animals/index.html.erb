@@ -10,7 +10,7 @@
           <%- if animal.photos.present? %>
             <div class="animal-img" style="background-image:url('<%= animal.photos.first.large %>')" ></div>
           <%- else %>
-            <em class='text-center'>No image available</em>
+            <div class="animal-img img-not-found" style="background-image:url('<%= image_url("pet-image-not-found.png") %>')" ><em class='text-center'>No image available</em></div>
           <% end %>
           <h4><%= animal.name %></h4>
         <%end%>

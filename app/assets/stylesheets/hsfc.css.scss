@@ -212,6 +212,19 @@ nav{
   background-position:center;
 }
 
+.img-not-found {
+  border-style: solid;
+  line-height: 15em;
+  text-align: center;
+
+  em {
+    font-size: 2em;
+    color: #fff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+}
+
+
 /* FOOTER */
 .footer-shadow{
   width:100%;
