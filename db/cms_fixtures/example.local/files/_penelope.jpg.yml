@@ -1,6 +1,7 @@
 ---
 label: Penelope
 description: The blue bomber..
-categories: []
+categories:
+- slides
 page: 
 block: 
