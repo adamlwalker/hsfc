@@ -52,7 +52,7 @@ When you want to push your changes up to Github and PR in order for others to se
 ## The Carousel
 
 Upload new photos via the Admin portal. The carousel will cycle through any
-images in the file list.
+images with the category 'slides'.
 
 ## Contributing:
 
