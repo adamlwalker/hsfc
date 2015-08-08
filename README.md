@@ -25,7 +25,17 @@ Look for Petfinder credentials in Slack channel and add to .env file.
     username: admin@cmsfortress.com
     password: 1234qwer
 
-## Managing non-application code (CMS Fixtures):
+## Managing non-application code
+
+
+### Adoption form data:
+
+To load the production questions, etc, into your database, run:
+
+    rails r db/hsfc_production_seeds.rb
+
+
+### CMS Fixtures:
 
 When you login for the first time, create a site called 'localhost' before attempting the import.
 
@@ -36,6 +46,7 @@ After pulling latest changes from the remote you need to **import** the fixture 
 When you want to push your changes up to Github and PR in order for others to see and use your changes **export**.
 
     rake comfortable_mexican_sofa:fixtures:export FROM=localhost TO=example.local
+
 
 ## The Carousel
 
