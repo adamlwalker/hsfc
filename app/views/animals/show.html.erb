@@ -9,7 +9,7 @@
         <%- elsif @animal.photos.count == 1 %>
           <img class='img-thumbnail' src="<%= @animal.photos.first.large %>">
         <%- else %>
-          <i class='text-center'>No image available</i>
+           <div class="animal-img img-not-found" style="background-image:url('<%= image_url("pet-image-not-found.png") %>')" ><em class='text-center'>No image available</em></div>
         <% end %>
       </div>
 

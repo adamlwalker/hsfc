@@ -8,9 +8,9 @@
       <div class="animal col-xs-3">
         <%= link_to animal_path(animal.animal, animal.id) do %>
           <%- if animal.photos.present? %>
-            <img class='img-thumbnail' src=<%= animal.photos.first.large %> />
+            <div class="animal-img" style="background-image:url('<%= animal.photos.first.large %>')" ></div>
           <%- else %>
-            <em class='text-center'>No image available</em>
+            <div class="animal-img img-not-found" style="background-image:url('<%= image_url("pet-image-not-found.png") %>')" ><em class='text-center'>No image available</em></div>
           <% end %>
           <h4><%= animal.name %></h4>
         <%end%>

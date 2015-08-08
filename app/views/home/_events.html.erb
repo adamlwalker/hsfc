@@ -1,0 +1,15 @@
+<div class="home-events">
+  <% @events.each do |e| %>
+  <div class="event panel panel-primary">
+    <div class="panel-heading">
+      <div class="title">
+        <%= e.title %>
+      </div>
+      <div class="date"><%= e.date %></div>
+    </div>
+    <div class="panel-body">
+        <%= e.description %>
+    </div>
+  </div>
+  <% end %>
+</div>

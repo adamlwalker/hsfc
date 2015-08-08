@@ -17,13 +17,25 @@ Issue tracking can be found [here](https://trello.com/b/uiGhjbJI/humane-society-
 Look for Petfinder credentials in Slack channel and add to .env file.
 
 ## cms-admin credentials
-    username: admin@rubyforgood.com
-    password: password
-    
-  or 
-  
+
+After booting up the server with ``rails s`` navigate to localhost:3000/cms-admin/login
+
     username: admin@cmsfortress.com
     password: 1234qwer
+    
+  or if that doesn't work you may need to use:
+  
+    username: admin@rubyforgood.com
+    password: password
+
+Once you have logged in you will need to delete the **default** site and
+creating a new site called **localhost**. You can find the page to make these
+changes by clicking settings button in the top navbar.
+
+With a new **localhost** site created you can bootstrap it with fixture files
+with the following command.
+
+    rake comfortable_mexican_sofa:fixtures:import FROM=example.local TO=localhost
 
 ## Managing non-application code
 
@@ -51,7 +63,7 @@ When you want to push your changes up to Github and PR in order for others to se
 ## The Carousel
 
 Upload new photos via the Admin portal. The carousel will cycle through any
-images in the file list.
+images with the category 'slides'.
 
 ## Contributing:
 
@@ -66,5 +78,7 @@ Make changes, commit, then push your changes.
     git push
 
 Submit PR into master.
+
+## [Screenshots](https://github.com/adamlwalker/hsfc/tree/master/screenshots)
 
 

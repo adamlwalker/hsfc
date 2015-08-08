@@ -1,0 +1,39 @@
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: center;
+}
+
+.alert-notice hr {
+  border-top-color: #c9e2b3;
+}
+
+.alert-notice .alert-link {
+  color: #2b542c;
+}
+
+.current-site-info {
+  margin-top: -1.2em;
+  margin-bottom: 0.3em;
+}
+
+.site_selector {
+  width: 250px;
+}
+
+h2.pull-right{
+  font-size: 27px;
+}
+.btn-scheduled, .btn-drafted, .btn-reviewed, .btn-published{color:#fff;}
+.btn-scheduled{background-color:#f0ad4e;}
+.btn-drafted{background-color:#5bc0de;}
+.btn-reviewed{background-color:#428bca;}
+.btn-published{background-color:#5cb85c;}

@@ -1,0 +1,13 @@
+contents:
+  - pages
+  - files
+  - page.review
+  - page.publish
+  - page.draft
+designs:
+  - layouts
+  - snippets
+settings:
+  - sites
+  - roles
+  - users

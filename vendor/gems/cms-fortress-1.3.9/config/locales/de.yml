@@ -1,0 +1,146 @@
+de:
+  cms:
+    fortress:
+      page_title: CMS Fortress Admin
+      title: CMS Fortress
+      contents: Inhalte
+      design: Design
+      admin: Admin
+      login: Logout
+      logout: Logout
+      create: Erstellen
+      update: Aktualisieren
+      delete: Löschen
+      edit: Bearbeiten
+      are_you_sure: Sind Sie sicher?
+      cancel: Abbrechen
+      published: Publiziert
+      published_date: Publiziert am
+      schedule_date: geplante Publizierung
+      cache_timeout: Cache Dauer
+      toggle_navigation: Navigation einklappen
+      image_selector: Bildauswahl
+      insert_item: Ein Bild anklicken um es in den ausgewählten Editor einzufügen.
+      settings: Einstellungen
+      current_site: Aktuelle Seite
+
+      admin:
+        dashboard:
+          title: Dashboard
+          draft_widget: Seiten im Entwurf
+          reviewed_widget: Überprüfte Seite
+          updated_pages: Kürzlich bearbeitete Seiten
+
+        sites:
+          menu_header: "Site/ %{site_name}"
+        super_user:
+          title: Super Users
+          menu_header: Nur Super User
+
+        users: Benutzer
+        not_authorized: Sie sind nicht berechtigt diese Funktionalität zu nutzen
+        settings_dashboard: Dashboard für Einstellungen
+        roles: Rollen
+        design_dashboard: Dashboard für Designs
+        design_related_information: Diese Seite wird Design spezifische Einstellungen zeigen.
+        content_dashboard: Dashboard für Inhalte
+        content_related_information: "Diese Seite wird Inhalt spezifische Einstellungen zeigen (Historie, Graphen, Analytics und andere.)"
+        errors:
+          missing_roles_yaml_file: "Die Konfigurationsdatei config/roles.yml ist nicht vorhanden."
+
+      roles:
+        title: Rollen
+        new_link: Neue Rolle
+        edit_title: Rolle bearbeiten
+        new_title: Neue Rolle erstellen
+        back: Zurück
+        load: Neue Rollen laden
+        role: Rolle
+        show: Anzeigen
+        manage: Verwalten
+        save: Speichern
+        description: Beschreibung
+        show_access_rights: Zugriffsrechte anzeigen
+        name: Name
+        contents: Inhalte
+        designs: Designs
+        settings: Einstellungen
+        files: Dateien
+        page: Seite
+        publish: publizieren
+        review: reviewen
+        pages: Seiten
+        layouts: Layouts
+        snippets: Schnipsel
+        roles: Rollen
+        sites: Seiten
+        users: Benutzer
+
+      users:
+        title: Benutzer
+        new_link: Neuer Benutzer
+        edit_title: Benutzer bearbeiten
+        new_title: Neuen Benutzer erstellen
+        last_name: Nachname
+        first_name: Vorname
+        email: E-Mail
+        role: Rolle
+        sessions:
+          new:
+            sign_in: Anmelden
+            email_address: E-Mail Adresse
+            password: Password
+            remember_me: Angemeldet bleiben
+  comfy:
+    admin:
+      cms:
+        pages:
+          form: &pages_form
+            review: Freigeben
+            reviewed: Freigegeben
+            schedule: Publizierung planen
+            scheduled: Geplant
+            publish: Jetzt publizieren
+            published: Publiziert
+            draft: Als Entwurf speichern
+            drafted: Entwurf
+            reset: Auf Entwurf zurücksetzen
+
+          edit:
+            <<: *pages_form
+        files:
+          form:
+            are_you_sure: Wirklich löschen?
+            delete: Löschen!
+
+  activerecord:
+    attributes:
+      cms/fortress/user:
+        last_name: Nachname
+        first_name: Vorname
+        email: E-Mail
+        role_id: Rolle
+        password: Passwort
+        password_confirmation: Passwort Bestätigung
+      cms/fortress/role:
+        name: Name
+        description: Beschreibung
+      cms/fortress/role_detail:
+        contents: Inhalte
+      comfy/cms/page:
+        full_path: Pfad
+        parent_id: Übergeordnete Seite
+        slug: URL-Pfad
+
+  login:
+    forgot_your_password: Passwort vergessen?
+    send_me_reset_password_instructions: Passwort-Reset Anweisungen senden
+    change_your_password: Ändern Sie Ihr Passwort
+    new_password: neues Passwort
+    confirm_new_password: Neuse Passwort bestätigen
+    change_my_password: Passwort ändern
+    log_in: Einloggen
+    sign_up: Registrieren
+    didnt_receive_confirmation_instructions: Sie haben keine Passwort-Reset Anweisungen erhalten?
+    didnt_receive_unlock_instructions: Sie haben keine Anweisungen zum entsperren erhalten?
+    sign_in_with: Anmelden mit #{provider.to_s.titleize}

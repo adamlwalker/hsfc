@@ -5,12 +5,13 @@ class HomeController < ApplicationController
   before_filter :find_shelter, only: [:dogs, :cats, :rabbits, :small_animals, :horses]
 
   def index
-    @images = Comfy::Cms::File.where(file_content_type: "image/jpeg")
+    @images = Comfy::Cms::File.for_category('slides')
     @articles = Comfy::Cms::Page.where('label ~* ?', 'news').last(3).reverse
     @dogs = select_pets('Dog')
     @cats = select_pets('Cat')
     @horses = select_pets('Horse')
     @rabbits = select_pets('Rabbit')
+    @events = Event.last(3)
 
     render cms_layout: 'base', cms_blocks: {
       carousel: { template: '/home/index' },

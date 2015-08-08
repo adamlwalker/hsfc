@@ -1,0 +1,150 @@
+zh-CN:
+  cms:
+    fortress:
+      page_title: CMS Fortress Admin
+      title: CMS Fortress
+      contents: Contents
+      design: Design
+      admin: Admin
+      login: Logout
+      logout: Logout
+      create: Create
+      update: Update
+      delete: Delete
+      edit: Edit
+      are_you_sure: Are you sure?
+      cancel: Cancel
+      published: Published
+      published_date: Published At
+      schedule_date: Scheduled Publication
+      cache_timeout: Cached Timeout
+      toggle_navigation: Toggle Navigation
+      image_selector: Image Selector
+      insert_item: Click the thumbnail to insert item to the selected editor.
+      settings: Settings
+      current_site: Current Site
+
+      admin:
+
+        dashboard:
+          title: Dashboard
+          draft_widget: Draft Pages
+          reviewed_widget: Reviewed Pages
+          updated_pages: Recently Updated Pages
+
+        sites:
+          menu_header: "Site/ %{site_name}"
+        super_user:
+          title: Super Users
+          menu_header: Super Users Only
+
+        users: Users
+        not_authorized: You are not authorized to access this functionality
+        settings_dashboard: Settings Dashboard
+        roles: Roles
+        design_dashboard: Design Dashboard
+        design_related_information: This page will show design related information.
+        content_dashboard: Content Dashboard
+        content_related_information: "This page will show contents related information (history, graphs, analytics and etc.)"
+        errors:
+          missing_roles_yaml_file: "The configuration file config/roles.yml is missing."
+
+      roles:
+        title: Roles
+        new_link: New Role
+        edit_title: Edit Role
+        new_title: Create New Role
+        back: Back
+        load: Load New Roles
+        role: Role
+        show: Show
+        manage: Manage
+        save: Save
+        description: Description
+        show_access_rights: Show Access Rights
+        name: Name
+        contents: Contents
+        designs: Designs
+        settings: Settings
+        files: Files
+        page: Page
+        publish: publish
+        review: review
+        pages: Pages
+        layouts: Layouts
+        snippets: Snippets
+        roles: Roles
+        sites: Sites
+        users: Users
+
+      users:
+        title: Users
+        new_link: New User
+        new_super_link: New Super User
+        edit_title: Edit User
+        new_title: Create New User
+        last_name: Lastname
+        first_name: Firstname
+        email: Email
+        role: Role
+        sessions:
+          new:
+            sign_in: Sign In
+            email_address: Email Address
+            password: Password
+            remember_me: Remember me
+
+  comfy:
+    admin:
+      cms:
+        pages:
+          form: &pages_form
+            review: Approve
+            reviewed: Reviewed
+            schedule: Publish Date
+            scheduled: Scheduled
+            publish: Publish Now
+            published: Published
+            draft: save as draft
+            drafted: Draft
+            reset: Reset to Draft
+
+          edit:
+            <<: *pages_form
+
+        files:
+          form:
+            are_you_sure: Are you sure to delete?
+            delete: Delete!
+
+  activerecord:
+    attributes:
+      cms/fortress/user:
+        last_name: Lastname
+        first_name: Firstname
+        email: Email
+        role_id: Role
+        password: Password
+        password_confirmation: Password Confirmation
+      cms/fortress/role:
+        name: Name
+        description: Description
+      cms/fortress/role_detail:
+        contents: Contents
+      comfy/cms/page:
+        full_path: Path
+        parent_id: Parent page
+        slug: Slug
+
+  login:
+    forgot_your_password: Forgot your password?
+    send_me_reset_password_instructions: Send me reset password instructions
+    change_your_password: Change your password
+    new_password: New password
+    confirm_new_password: Confirm new password
+    change_my_password: Change my password
+    log_in: Log in
+    sign_up: Sign up
+    didnt_receive_confirmation_instructions: Didn't receive confirmation instructions?
+    didnt_receive_unlock_instructions: Didn't receive unlock instructions?
+    sign_in_with: Sign in with #{provider.to_s.titleize}

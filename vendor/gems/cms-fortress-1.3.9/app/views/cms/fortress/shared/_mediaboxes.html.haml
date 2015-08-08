@@ -1,0 +1,19 @@
+#media-box-dialog.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") x
+        %h5.title= t('cms.fortress.image_selector')
+      #modal-body.modal-body
+        =# render partial: 'cms/fortress/shared/media_items', locals: {media: media}
+
+      .modal-footer
+        %small.muted
+          = t('cms.fortress.insert_item')
+
+:coffeescript
+  CmsFortress.media.imagesPath = "#{ media_files_path(:image) }"
+  CmsFortress.media.videosPath = "#{ media_files_path(:video) }"
+  CmsFortress.media.othersPath = "#{ media_files_path(:others) }"
+
+

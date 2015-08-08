@@ -1,0 +1,56 @@
+- unless @site.nil? || @site.new_record?
+  .container-fluid.current-site-info
+    - if super_user? && multiple_sites?
+      .btn-group(style="margin-top: 8px;")
+        %button.btn.btn-default.btn-sm.dropdown-toggle(type='button' data-toggle="dropdown")
+          %small.site-button-label
+            %em
+              = t('cms.fortress.current_site')
+          %strong.site-button-label
+            = current_site
+          %b.caret
+        %ul.dropdown-menu
+          - all_sites.each do |site|
+            = topnav_item site.label, comfy_admin_cms_site_pages_path(site), @site.id.eql?(site.id)
+    - else
+      .btn.btn-default.btn-sm
+        %small.site-button-label
+          %em
+            = t('cms.fortress.current_site')
+        %strong.site-button-label
+          = current_site
+
+
+.container-fluid.wide-body
+  - if controller_name.eql?('revisions')
+    .row
+      .col-sm-9
+        =# render :partial => 'layouts/comfy/admin/cms/center'
+        = yield
+      .col-sm-3
+        .panel.panel-default.revision-list
+          .panel-heading
+            Revisions
+          .panel-body
+            = yield :right_column
+  - else
+    =# render :partial => 'layouts/comfy/admin/cms/center'
+    = yield
+
+= render :partial => 'layouts/comfy/admin/cms/footer'
+
+:coffeescript
+  ### iconize delete and edit links ###
+  $(".wide-body div.btn-group a:contains(Delete)").prepend("<span class='glyphicon glyphicon-remove' /> ").attr("title", "Delete") #.tooltip(placement: 'left')
+  $(".wide-body div.btn-group a:contains(Edit)").prepend("<span class='glyphicon glyphicon-edit' /> ").attr("title", "Edit") #.tooltip(placement: 'left')
+  $(".wide-body div.btn-group a:contains(Add Child)").html("<i class='glyphicon glyphicon-plus' /> Child").attr("title", "Add Child") #.tooltip(placement: 'left')
+
+  $(".wide-body .page-header a:contains(Create New Page)").html("<i class='glyphicon glyphicon-file' /> New Page").attr("title", "Create New Page").tooltip(placement: 'left')
+
+- unless @no_back_button
+  :coffeescript
+    index_path = "#{ back_path }"
+    $(".wide-body .page-header h2:contains(New), .wide-body .page-header h2:contains(Editing)").parent()
+      .prepend('<a class="btn btn-default pull-right" href="' + index_path + '" title="" data-original-title="Create New Page"><i class="glyphicon glyphicon-chevron-left"></i> Back</a> ')
+
+    $(".wide-body .page-header .btn").removeClass("pull-right").wrapAll("<div class='btn-group pull-right'></div>")

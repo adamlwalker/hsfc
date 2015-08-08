@@ -1,0 +1,152 @@
+{<img src="https://badge.fury.io/rb/cms-fortress.png" alt="Gem Version" />}[http://badge.fury.io/rb/cms-fortress]
+{<img src="https://gemnasium.com/melvinsembrano/cms-fortress.png" alt="Dependencies" />}[https://gemnasium.com/melvinsembrano/cms-fortress]
+{<img src="https://codeclimate.com/github/melvinsembrano/cms-fortress.png" alt="Code Climate" />}[https://codeclimate.com/github/melvinsembrano/cms-fortress]
+{<img src="https://travis-ci.org/melvinsembrano/cms-fortress.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/melvinsembrano/cms-fortress]
+
+= cms-fortress
+
+An extension for the awesome ComfortableMexicanSofa (https://github.com/comfy/comfortable-mexican-sofa) CMS Engine
+
+* Added Role Management for proper workflow
+* Added Devise for User and Session Management
+* Added User Management
+* Added Page caching control
+* Added proper page workflow
+* Customizable menus, role abilities
+* Added layout theming, current themes (:default, :wide)
+* Integrate Cms::Files (image,video and link) attachements into WYSIWYG editor buttons (wide theme only)
+
+
+==== NOTE: with the major changes of comfy-sofa, cms-fortress supports only Rails 4.0++
+
+== Installation
+
+Add gem defintion to your Gemfile:
+
+  gem 'cms-fortress', '~> 1.3.6'
+
+Then from the Rails project's root run:
+
+    bundle install
+    rails generate cms:fortress
+    rake db:migrate
+
+After that run your app and navigate to http://localhost:3000/cms-admin to start creating your pages, and also don't forget to delete your public/index.html file.
+
+    login using the following info below:
+
+    username: admin@cmsfortress.com
+    password: 1234qwer
+
+===== Installing on project with Comfortable Mexican Sofa was already installed:
+
+    rails generate cms:fortress --no-comfy
+    rake db:migrate
+
+===== Upgrading older version of cms-fortress:
+
+    rails generate cms:fortress:upgrade
+    rake db:migrate
+
+===Adding custom role details
+
+You can create a custom role ability via a three-step process.
+
+1: Edit <tt>config/roles.yml</tt> and add the new role under the category you wish.
+
+    contents:
+      - pages
+      - files
+      - page.review
+      - page.publish
+    designs:
+      - layouts
+      - snippets
+    settings:
+      - sites
+      - roles
+      - users
+      - *my_role_detail*
+
+2: Configure cms-fortress to add a new resource. Add this in an initializer:
+
+    Cms::Fortress.configure do |config|
+      config.settings_resources << {
+        :name => 'my_role_detail',
+        :title => 'i18n.label.title', # this is passed to the t() function - can be plain text
+        :path => 'admin_my_role_details_path'
+      }
+      # the other two lists are "content_resources" and "design_resources"
+
+      #adding a super user only menu item
+      config.settings_resources << {
+        :name => 'my_role_detail',
+        :title => 'i18n.label.title', # this is passed to the t() function - can be plain text
+        :path => 'admin_my_role_details_path',
+        :super_user => true
+      }
+
+      # adding a divider menu item (Wide Theme only)
+      config.content_resources << {name: 'divider'}
+
+      #adding a menu header item (Wide Theme only)
+      config.content_resources << {name: 'dropdown-header', title: "i18n.my.header.label"}
+
+    end
+
+The path is eval'd at runtime, so you can use Rails helper methods such as
++current_user+ or <tt>@site</tt> in it. If the result is nil, the link will not show up
+in the left nav bar.
+
+3: Restart the server. Go into each Role you have defined and click
+"Load New Roles". Voila!
+
+=== Other configuration
+
+You can turn off page workflow or page caching via configuration and you can set the theme to +:wide+ or +:default+:
+
+    Cms::Fortress.configure do |config|
+      config.theme = :wide
+      config.enable_page_workflow = false
+      config.enable_page_caching = false
+    end
+
+=== Wide Theme
+With wide theme, the layout and menus are being compacted so that you have all the area for authoring.  Files are also being nicely integrated to the WYSIWYG editor (tinymce).
+Below are the fetures for wide theme:
+
+* Compact Layout and Menus
+* Responsive Layout
+* Fullcreen Editing
+* Integrated image file attachment
+* Integrated video file attachment
+* Integrated link file attachment
+
+http://raw.github.com/melvinsembrano/cms-fortress/master/docs/screens/compact-layout-01.png
+
+http://raw.github.com/melvinsembrano/cms-fortress/master/docs/screens/files-integration-02.png
+
+=== TODO: More customization documents and sample
+
+For more Comfortable Mexican Sofa awesomeness visit the wiki page here https://github.com/comfy/comfortable-mexican-sofa/wiki
+
+== Development & Testing
+
+To run the tests you have to install the development files and run the migrations
+
+    rails generate cms:fortress --development
+    rake db:migrate
+
+Afterwards you can run the tests by calling
+
+    rake test
+
+== Contributing
+
+Please see {CONTRIBUTING.rdoc}[https://github.com/melvinsembrano/cms-fortress/blob/master/CONTRIBUTING.rdoc] for details.
+
+== Copyright
+
+Copyright (c) 2014 Melvin Sembrano. See LICENSE.txt for
+further details.
+

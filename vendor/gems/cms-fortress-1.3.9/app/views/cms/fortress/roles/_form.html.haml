@@ -1,0 +1,6 @@
+= form.text_field :name
+= form.text_area :description, :rows => 2
+
+= form.form_group :class => 'form-actions' do
+  = form.submit @cms_fortress_role.new_record? ? t('cms.fortress.create') : t('cms.fortress.update'), :class => 'btn btn-primary'
+

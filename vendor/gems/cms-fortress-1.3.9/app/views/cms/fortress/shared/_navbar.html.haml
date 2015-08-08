@@ -1,0 +1,13 @@
+%nav.navbar.navbar-default(role="navigation")
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle(type="button" data-toggle="collapse" data-target="#main-nav")
+        %span.sr-only= t('cms.fortress.toggle_navigation')
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to settings.title, settings.title_link, class: 'navbar-brand'
+
+    .collapse.navbar-collapse#main-nav
+      %ul.nav.navbar-nav
+

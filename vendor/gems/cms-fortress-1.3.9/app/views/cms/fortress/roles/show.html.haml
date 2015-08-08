@@ -1,0 +1,24 @@
+.page-header
+  .btn-group.pull-right
+    =# link_to t('.edit'), edit_cms_fortress_role_path(@cms_fortress_role), :class => 'btn'
+    = link_to t('cms.fortress.roles.load'), refresh_cms_fortress_role_path(@cms_fortress_role), :class => 'btn btn-primary', :method => :post
+    = link_to t('cms.fortress.roles.back'), cms_fortress_roles_path, :class => 'btn btn-default'
+  %h3= "#{t('cms.fortress.roles.role')}: #{ @cms_fortress_role.name }"
+  %p= @cms_fortress_role.description
+
+
+= form_for @cms_fortress_role, :html => {:class => ''} do |f|
+  %table.table
+    %tr
+      %th
+      %th= t('cms.fortress.roles.show')
+      %th= t('cms.fortress.roles.manage')
+    = f.fields_for :role_details do |role|
+      %tr
+        %td= role_display(role.object.command)
+        %td= role.check_box :can_view
+        %td= role.check_box :can_create
+
+  .form-actions
+    = f.submit t('cms.fortress.roles.save'), :class => 'btn btn-primary'
+

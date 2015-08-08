@@ -1,0 +1,20 @@
+.page-header
+  = link_to t('cms.fortress.roles.new_link'), new_cms_fortress_role_path, :class => 'btn btn-primary btn-sm pull-right'
+  %h2= t('cms.fortress.roles.title')
+
+%table.table.table-hover.table-bordered.table-striped
+  %tr
+    %th= t('cms.fortress.roles.name')
+    %th{:style => 'width: 60%;'}= t('cms.fortress.roles.description')
+    %th
+
+  - @cms_fortress_roles.each do |cms_fortress_role|
+    %tr
+      %td= cms_fortress_role.name
+      %td= cms_fortress_role.description
+      %td
+        .btn-group.pull-right
+          = link_to t('cms.fortress.roles.show_access_rights'), cms_fortress_role, :class => 'btn btn-sm btn-info'
+          = link_to t('cms.fortress.edit'), edit_cms_fortress_role_path(cms_fortress_role), :class => 'btn btn-sm btn-default'
+          = link_to t('cms.fortress.delete'), cms_fortress_role, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-sm btn-danger'
+
