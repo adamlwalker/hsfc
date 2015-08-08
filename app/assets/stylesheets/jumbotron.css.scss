@@ -8,10 +8,10 @@
     background-repeat: no-repeat;
     color: white;
     height: 600px;
-    background-image: url(/system/comfy/cms/files/files/000/000/009/original/animal-dog-pet-brown.jpg);
+    background-image: image-url("animal-dog-pet-brown.jpg");
 
     &.kittens {
-      background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/7d/4_Kittens.jpg);
+      background-image: image-url("foster_kittens");
     }
 
     a {
