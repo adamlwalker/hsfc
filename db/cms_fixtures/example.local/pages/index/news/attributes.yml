@@ -1,7 +1,7 @@
 ---
-label: news1
-layout: news
-parent: news
+label: news
+layout: base
+parent: index
 target_page: 
 categories: []
 is_published: true
