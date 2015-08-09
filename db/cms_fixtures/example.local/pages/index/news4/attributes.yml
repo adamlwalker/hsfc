@@ -1,7 +1,7 @@
 ---
 label: news4
 layout: news
-parent: index
+parent: news
 target_page: 
 categories: []
 is_published: true
