@@ -1,11 +1,11 @@
 ---
-label: donate
-layout: donate
-parent: index
+label: news4
+layout: news
+parent: news
 target_page: 
 categories: []
 is_published: true
-position: 7
+position: 4
 cached_timeout: 0
 aasm_state: published
 published_date: 2015-08-01
