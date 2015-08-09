@@ -1,17 +1,18 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-9 col-sm-12 home-news'>
+    <div class='col-md-6 col-md-offset-1 col-sm-6 col-xs-12 home-news'>
+      <h3>Latest News</h3>
       <% @articles.each do |article| %>
-        <div class="separator clearfix"></div>
-        <div class="article">
-          <div class="title"><%= cms_block_render('title', article) %></div>
-          <div class="date"><%= cms_block_render('date', article) %></div>
+        <h3><a href="<%= article.full_path %>"><%= cms_block_render('title', article) %></a></h3>
+        <em><%= cms_block_render('date', article) %></em>
 
-          <p><%= cms_block_render('body', article) %></p>
-        </div>
+        <p><%= truncate(cms_block_render('body', article), length: 175) %></p>
+        <%= link_to 'Read more', article.full_path %>
+        <hr />
       <% end %>
     </div>
-    <div class='col-md-3 col-sm-12'>
+    <div class='col-md-4 col-sm-6 col-xs-12'>
+      <h3>Upcoming Events</h2>
       <%= render 'events' %>
     </div>
   </div>

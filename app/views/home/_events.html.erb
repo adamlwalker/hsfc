@@ -1,4 +1,5 @@
 <div class="home-events">
+  <% if !@events.blank? %>
   <% @events.each do |e| %>
   <div class="event panel panel-primary">
     <div class="panel-heading">
@@ -11,5 +12,8 @@
         <%= e.description %>
     </div>
   </div>
+  <% end %>
+  <% else %>
+  <p>No current events. Please check back later!</p>
   <% end %>
 </div>
