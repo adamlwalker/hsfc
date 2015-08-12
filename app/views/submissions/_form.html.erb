@@ -15,6 +15,12 @@
             <div class="select-response">
               <%= ff.select :string_response, options_for_select( ff.object.question.option_list), include_blank: true  %>
             </div>
+          <% elsif ff.object.question.input_type == "checkbox" %>
+            <div class="checkbox-response">
+              <% ff.object.question.option_list.each do |o| %>
+                <%= ff.check_box :string_response, {}, o %>
+              <% end %>
+            </div>
           <% elsif ff.object.question.input_type == "integer" %>
             <div class="integer-response">
               <%= ff.number_field :integer_response, class: "form-control" %>
@@ -23,9 +29,11 @@
             <div class="textarea-response">
               <%= ff.text_area :string_response, class: "form-control", rows: "5" %>
             </div>
-          <% elsif ff.object.question.input_type == "boolean"  %>
+          <% elsif ff.object.question.input_type == "radio"  %>
             <div class="boolean-response">
-              <%= ff.radio_button :boolean_response, class: "form-control" %>
+              <% # ff.label %>
+              <%= ff.radio_button :boolean_response, true %>
+              <%= ff.radio_button :boolean_response, false %>
             </div>
           <% elsif ff.object.question.input_type == "date" %>
             <div class="date-response">

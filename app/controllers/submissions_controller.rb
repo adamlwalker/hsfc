@@ -4,6 +4,9 @@ class SubmissionsController < ApplicationController
 
   def new
     @submission = Submission.new_with_responses( params[:form_type_id] )
+    # TODO add a date picker for date questions
+    # TODO finish the radio button stuff (collection_radio_buttons)
+    # TODO flesh out the checkboxes, try railsguides
   end
 
   def create
