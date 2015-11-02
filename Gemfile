@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 
+gem 'andand'
+gem 'best_in_place' # Allows inline editing
 gem 'cms-fortress', :path => 'vendor/gems/cms-fortress-1.3.9'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
@@ -14,6 +16,7 @@ gem 'petfinder'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'simple_form'
 gem 'social_share'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
