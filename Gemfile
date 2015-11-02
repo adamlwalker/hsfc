@@ -24,7 +24,9 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.0'
