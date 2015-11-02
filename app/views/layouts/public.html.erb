@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HSFC</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body class="controller_<%= controller.controller_name %> action_<%= params[:action] %>">
+    <div id="page_content">
+      <%= yield %>
+    </div>
+  </body>
+  <footer>
+  </footer>
+
+  <script>
+      if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+          document.body.className = document.body.className + ' touch';
+          window.scrollTo(0, 1)
+      }
+  </script>
+</html>

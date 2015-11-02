@@ -1,0 +1,27 @@
+<!--#FIXME - right now this form requires you to have param in url: ?submission_template_id=1-->
+
+<div>
+  <%= simple_form_for @applicant,
+                      url: adoption_form_path,
+                      as: 'applicant',
+                      html: { class: 'form-horizontal' } do |applicant_form| %>
+
+    <%= validation_error_prompt(@applicant) %>
+
+    <div class="applicant-fields field-section">
+      <%= render partial: "applicant_fields", locals: { applicant_form: applicant_form } %>
+    </div>
+
+    <div class="submission-fields field-section">
+      <%= applicant_form.simple_fields_for :submissions, html: { class: '' } do |submission_form| %>
+        <%= submission_form.hidden_field :submission_template_id %>
+        <%= render partial: "dynamic_submission_responses", locals: { submission_form: submission_form } %>
+      <% end %>
+    </div>
+
+    <div class="submit-button">
+      <%= applicant_form.button :submit, "Submit", { class: "btn btn-primary" } %>
+    </div>
+
+  <% end %>
+</div>

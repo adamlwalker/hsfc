@@ -1,0 +1,13 @@
+<div class="submission-form">
+  <div class="submission-form-body">
+    <%= image_tag('logo.jpg') %>
+  </div>
+  <div class="form-title">
+    <br/><br/>
+    <% if @submission_template %>
+      <%= @submission_template.submission_thank_you_text %>
+    <% else %>
+      <h1>Thank you for completing our form. We'll be in touch!</h1>
+    <% end %>
+  </div>
+</div>

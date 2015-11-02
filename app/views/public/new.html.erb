@@ -1,0 +1,32 @@
+<div class="submission-form">
+
+  <div class="header-bar">
+    <div class="logo">
+      <div>
+        <%= image_tag('logo.jpg') %>
+      </div>
+    </div>
+
+    <div class="form-title"></div>
+      <h1>
+        <% if params[:submission_template_id] %>
+          <%= @submission.submission_template.name %>
+          <%= Date.today.year %>
+        <% else %>
+          <%= "Choose a Pet Type Below:" %>
+          <% @submission_template_id = 1 %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="submission-form-body">
+    <% if @submission_template_id %>
+      <%= render partial: "form" %>
+    <% else %>
+      no go
+      <%#= render partial: "pet_type_field" %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,127 @@
+<%= submission_form.simple_fields_for :responses do |response_form| %>
+  <%= response_form.hidden_field :question_id %>
+  <% question = response_form.object.question %>
+  <% hint_text = question.hint_text.andand.html_safe %>
+  <% input_type = question.input_type %>
+  <% option_list = question.option_list %>
+  <% question_name = question.name.html_safe %>
+  <% required = question.is_required %>
+
+  <% if question.admin_only_question == true && params_controller_name == "public_controller" %>
+    <div class="admin-only-hidden">
+  <% elsif question.admin_only_question == true && params_controller_name == "submissions_controller" %>
+    <div class="admin-only">
+  <% end %>
+
+  <% if question.parent_id.present? %>
+    <div class="child-question field-section">
+  <% end %>
+
+  <% if @parent_questions.include?(question) %>
+    <div class="parent-question">
+  <% end %>
+
+  <!--<%# if question.admin_only_question == true && params_controller_name == "public_controller" %>-->
+    <!--<div class="admin-only-hidden">-->
+  <!--<%# end %>-->
+
+  <!--<%# if question.admin_only_question == true && params_controller_name != "public_controller" %>-->
+    <!--<%# if @parent_questions.include?(question) %>-->
+      <!--<div class="admin-only parent-question">-->
+    <!--<%# elsif question.parent_id.present? %>-->
+      <!--<div class="admin-only child-question field-section">-->
+    <!--<%# else %>-->
+      <!--<div>-->
+    <!--<%# end %>-->
+  <!--<%# end %>-->
+
+  <!--<%# if question.admin_only_question == false %>-->
+    <!--<%# if @parent_questions.include?(question) %>-->
+      <!--<div class="parent-question">-->
+    <!--<%# elsif question.parent_id.present? %>-->
+      <!--<div class="child-question field-section">-->
+    <!--<%# else %>-->
+      <!--<div>-->
+    <!--<%# end %>-->
+  <!--<%# end %>-->
+
+  <% if input_type == "checkbox"  %>
+    <%= response_form.input question_field_name(input_type),
+                            required: required,
+                            hint:  "#{hint_text}",
+                            as: :check_boxes,
+                            checked_value: true,
+                            unchecked_value: false,
+                            label: question_name,
+                            collection: option_list,
+                            class: "radio child-question" %>
+  <% elsif input_type == "date" || input_type == "datetime" %>
+    <%= response_form.input question_field_name(input_type),
+                            as: :string,
+                            input_html: { class: "datepicker short-response" },
+                            required: required,
+                            hint:  "#{hint_text}",
+                            label: question_name,
+                            collection: option_list %>
+  <% elsif input_type == "info_text" %>
+    <div class="wide-response info-text">
+      <br><%= question_name %>
+      <%= hint_text %>
+    </div>
+  <% elsif input_type == "integer" %>
+    <%= response_form.input question_field_name(input_type),
+                            required: required,
+                            hint:  "#{hint_text}",
+                            as: :integer,
+                            label: question_name,
+                            collection: option_list,
+                            input_html: { class: "form-field-display-block short-response" },
+                            size: option_list.length.andand.to_s %>
+  <% elsif input_type == "multiselect" %>
+    <%= response_form.input question_field_name(input_type),
+                            required: required,
+                            hint:  "#{hint_text}",
+                            default: "{}",
+                            as: :check_boxes,
+                            label: "++" + question_name,
+                            collection: option_list,
+                            input_html: { multiple: true },
+                            size: option_list.length.andand.to_s,
+                            class: "radio child-question" %>
+  <% elsif input_type == "radio"  %>
+    <%= response_form.input question_field_name(input_type),
+                            as: :radio_buttons,
+                            required: required,
+                            hint:  "#{hint_text}",
+                            label: question_name,
+                            collection: option_list,
+                            class: "radio" %>
+  <% elsif input_type == "select" %>
+    <%= response_form.input question_field_name(input_type),
+                            required: required,
+                            hint:  "#{hint_text}",
+                            include_blank: true,
+                            label: question_name,
+                            collection: option_list,
+                            input_html: { class: "form-field-display-block  medium-sized-response" },
+                            label_html: { class: "form-field-display-block" } %>
+  <% elsif input_type == "textarea" %>
+    <%= response_form.input question_field_name(input_type),
+                            as: :text,
+                            required: required,
+                            hint:  "#{hint_text}",
+                            label: question_name,
+                            input_html: { class: "form-field-display-block wide-response" },
+                            label_html: { class: "form-field-display-block" } %>
+  <% else # input_type == "text" || input_type == "string" %>
+    <%= response_form.input question_field_name(input_type),
+                            required: required,
+                            hint:  "#{hint_text}",
+                            label: question_name.to_s,
+                            input_html: { class: "form-field-display-block medium-sized-response" },
+                            label_html: { class: "form-field-display-block" } %>
+  <% end %>
+
+  <!--</div></div></div></div></div></div></div>-->
+  </div></div></div></div></div></div></div>
+<% end %>

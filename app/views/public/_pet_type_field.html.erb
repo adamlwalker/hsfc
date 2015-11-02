@@ -1,0 +1,7 @@
+<div class="form-inline display-block">
+  <%= @submission.input :pet_type,
+                                as: :radio_buttons,
+                                required: true,
+                                collection: @pet_types,
+                                class: "input-radio" %>
+</div>
