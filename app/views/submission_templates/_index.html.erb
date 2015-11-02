@@ -1,0 +1,24 @@
+<div class="col-md-12">
+  <table class="table table-vertical-lines table-striped table-hover
+                table-condensed table-responsive">
+    <thead style="background-color: beige">
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Pet Type</td>
+      <td>Submission Thank You Text</td>
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @submission_templates.each do |submission_template| %>
+        <tr>
+          <td><%= submission_template.id %></td>
+          <td><%= submission_template.name %></td>
+          <td><%= submission_template.pet_type.andand.name %></td>
+          <td><%= submission_template.submission_thank_you_text %></td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
+</div>
