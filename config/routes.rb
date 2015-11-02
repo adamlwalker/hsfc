@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :events
-  resources :submissions
   # FIXME there are some excessive routes
 
   get '/adopt/dogs' => 'animals#dogs', as: :dogs_index
@@ -18,6 +16,43 @@ Rails.application.routes.draw do
   get '/adopt/horses/:petfinder_id' => 'animals#horse', as: :horse
 
   resources :news, only: :index
+
+  #adoption_form_id = SubmissionTemplate.where(id: @submission_template_id)
+  get "/adoption_form", #?submission_template_id=#{adoption_form_id}",
+      to: "public#new",
+      as: 'adoption_form'
+  post '/adoption_form',
+       to: 'public#create',
+       as: 'adoption_submission'
+
+  get  '/thanks',
+       to: 'public#submission_thank_you',
+       as: 'submission_thank_you'
+  post '/thanks',
+       to: 'public#submission_thank_you',
+       as: ''
+
+
+  resources :submission_templates, only: [ :index, :update ]
+  put '/submission_templates',
+      to: 'submission_templates#update',
+      as: 'new_submission_template'
+
+  resources :submission_template_questions, only: [ :index, :update ]
+  put '/submission_template_questions',
+      to: 'submission_template_questions#update',
+      as: 'new_submission_template_question'
+
+  resources :questions, only: [ :index, :update, :destroy ]
+  put '/questions',
+      to: 'questions#update',
+      as: 'update_question'
+  put '/questions',
+      to: 'questions#delete',
+      as: 'delete_question'
+
+
+
 
   cms_fortress_routes :path => '/cms-admin'
 
