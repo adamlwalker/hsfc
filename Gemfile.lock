@@ -101,6 +101,7 @@ GEM
       sass-rails (>= 4.0.3)
     comfy_blog (1.12.3)
       comfortable_mexican_sofa (>= 1.12.7)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     delayed_job (4.0.6)
       activesupport (>= 3.0, < 5.0)
@@ -118,6 +119,11 @@ GEM
     erubis (2.7.0)
     excon (0.45.4)
     execjs (2.5.2)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -284,7 +290,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   comfortable_mexican_sofa (~> 1.12.0)
   comfy_blog (~> 1.12.0)
+  database_cleaner
   dotenv-rails
+  factory_girl_rails (~> 4.0)
   jbuilder (~> 2.0)
   jquery-rails
   petfinder
@@ -296,8 +304,12 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_form
   social_share
   spring
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
