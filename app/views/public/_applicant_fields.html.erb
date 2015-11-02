@@ -1,0 +1,60 @@
+<div class="form-inline display-block">
+  <%= applicant_form.input :first_name,
+                           as: :string,
+                           required: true,
+                           input_html: { class: "form-field-display-block" },
+                           label_html: { class: "form-field-display-block" } %>
+  <%= applicant_form.input :last_name,
+                           as: :string,
+                           required: true,
+                           input_html: { class: "form-field-display-block" },
+                           label_html: { class: "form-field-display-block" } %>
+  <%= applicant_form.input :under_18,
+                           required: true,
+                           as: :radio_buttons,
+                           label: "Age",
+                           collection: ["Under 18", "18+"],
+                           input_html: { class: "radio form-field-display-block" },
+                           label_html: { class: "radio form-field-display-block" } %>
+  <%= applicant_form.input :email_address,
+                           as: :string,
+                           required: true,
+                           error: "Email must be valid.",
+                           input_html: { class: "form-field-display-block"},
+                           label_html: { class: "form-field-display-block" } %>
+</div>
+<div class="form-inline display-block">
+  <%= applicant_form.input :home_telephone_number,
+                           as: :string,
+                           required: true,
+                           input_html: { class: "form-field-display-block" },
+                           label_html: { class: "form-field-display-block" } %>
+  <%= applicant_form.input :mobile_telephone_number,
+                           as: :string,
+                           required: true,
+                           input_html: { class: "form-field-display-block" },
+                           label_html: { class: "form-field-display-block" } %>
+  <%= applicant_form.input :work_telephone_number,
+                           as: :string,
+                           required: true,
+                           input_html: { class: "form-field-display-block" },
+                           label_html: { class: "form-field-display-block" } %>
+</div>
+<div class="form-inline display-block">
+  <%= applicant_form.input :city,
+                           required: true,
+                           as: :string,
+                           input_html: { class: "form-field-display-block" },
+                           label_html: { class: "form-field-display-block" } %>
+  <%= applicant_form.input :state,
+                           include_blank: true,
+                           label: "State",
+                           collection: us_states,
+                           input_html: { class: "form-field-display-block
+                                              medium-sized-response" },
+                           label_html: { class: "form-field-display-block" } %>
+  <%= applicant_form.input :zip_code,
+                           required: true,
+                           input_html: { class: "form-field-display-block" },
+                           label_html: { class: "form-field-display-block" } %>
+</div>
