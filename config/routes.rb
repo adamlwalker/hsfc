@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/adopt/horses' => 'animals#horses', as: :horses_index
   get '/adopt/horses/:petfinder_id' => 'animals#horse', as: :horse
 
+  resources :applicants, :events, :submissions
+
   resources :news, only: :index
 
   #adoption_form_id = SubmissionTemplate.where(id: @submission_template_id)

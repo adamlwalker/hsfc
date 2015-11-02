@@ -4,6 +4,7 @@ class Submission < ActiveRecord::Base
   has_many   :responses
   has_many   :questions, through: :submission_template
 
+  accepts_nested_attributes_for :responses
 
   def self.new_with_responses(submission_template_id)
     submission = self.new(submission_template_id: submission_template_id)
