@@ -1,0 +1,9 @@
+<fieldset>
+  <%= simple_form_for :submission_template_questions, as: "submission_template_question" do |stq| %>
+    <% unless /---/.match(SubmissionTemplate.last.name) && /---/.match(SubmissionTemplate.last.name).size > 0 %>
+          <%= stq.association :submission_template %>
+          <%= stq.association :question %>
+          <%= stq.input :id, disabled: true     %></td>
+    <% end %>
+  <% end %>
+</fieldset>

@@ -1,0 +1,16 @@
+<div>
+  <%= simple_form_for @applicant,
+                      as: 'applicant',
+                      html: { class: 'form-horizontal' } do |applicant_form| %>
+
+    <%= validation_error_prompt(@applicant) %>
+
+    <div class="applicant-fields field-section">
+      <%= render partial: "public/applicant_fields", locals: { applicant_form: applicant_form } %>
+    </div>
+
+    <div class="submit-button">
+      <%= applicant_form.button :submit, "Submit", { class: "btn btn-primary" } %>
+    </div>
+  <% end %>
+</div>

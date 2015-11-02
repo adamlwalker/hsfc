@@ -1,0 +1,32 @@
+<div>
+  <%= simple_form_for @submission_template,
+                      url: submission_template_path,
+                      as: 'submission_template',
+                      html: { class: 'form-horizontal' } do |submission_template| %>
+
+    <%= validation_error_prompt(@submission_template) %>
+
+    <div class="form-inline display-block">
+      <%= submission_template.input :name,
+                                    as: :string,
+                                    required: true,
+                                    input_html: { class: "form-field-display-block" },
+                                    label_html: { class: "form-field-display-block" } %>
+      <%= submission_template.input :pet_type,
+                                    as: :radio_buttons,
+                                    required: true,
+                                    collection: @pet_types,
+                                    class: "input-radio" %>
+      <%= submission_template.input :submission_thank_you_text,
+                                    as: :string,
+                                    required: true,
+                                    input_html: { class: "form-field-display-block"},
+                                    label_html: { class: "form-field-display-block" } %>
+    </div>
+
+    <div>
+      <%= submission_template.button :submit, "Submit", { class: "btn btn-primary" } %>
+    </div>
+
+  <% end %>
+</div>
