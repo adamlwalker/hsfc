@@ -1,0 +1,14 @@
+<div class="col-md-12" style="background-color: white;">
+  <div class="col-md-12">
+    <h1 style="display: inline-block"><%= params_controller_name.humanize.titleize %></h1>
+      <span style="padding-bottom: 2em;">
+        (<%= params_controller_name.classify.constantize.count %>)
+      </span>
+  </div>
+</div>
+
+<div class="col-md-12" style="background-color: white;">
+  <%= render partial: "index" %>
+</div>
+
+
