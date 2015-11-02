@@ -1,0 +1,16 @@
+<div class="submission-show">
+  <div class="header-bar">
+    <% if @submission %>
+      <%= mail_to('', 'Email this Application',
+                  subject: @submission.submission_template.name + ": " +
+                      @applicant.name + "  (" +
+                      @submission.created_at.to_date.to_s + ")",
+                  body: sanitize((render partial: "edit"), :tags=>[]) ) %>
+    <% end %>
+  </div>
+  <div class="submission-show-body">
+    <%= render partial: "edit" %>
+  </div>
+</div>
+
+
