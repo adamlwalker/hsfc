@@ -1,6 +1,6 @@
 <div class="container">
   <%= form_for @submission do |f| %>
-      <%=  f.hidden_field :form_type_id %>
+      <%=  f.hidden_field :submission_template_id %>
       <%= f.fields_for :responses do |ff| %>
         <div class="question form-group">
           <%= ff.hidden_field :question_id %>

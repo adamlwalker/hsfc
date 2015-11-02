@@ -1,0 +1,56 @@
+<div>
+
+      <em><%= @submission.submission_template.andand.name %>:
+        <%= @submission.created_at.strftime("%b %d %l:%M %p") %></p></em>
+
+      <h1><%= link_to(@applicant.name, edit_applicant_path) %></h1>
+      <p>Email_address:
+        <% if @applicant.email_address.present? %>
+          <%= mail_to(@applicant.email_address, @applicant.email_address.to_s,
+                      subject: "Shakori Hills " + @submission
+                         .submission_template.andand.name,
+                      body: strip_tags(
+                          "Dear " + @applicant.name + ",   "
+                      )) %>
+        <% else %>
+          <%= "None on record." %>
+        <% end %>
+        <br>
+      </p>
+      <p>
+        Home:
+        <% if @applicant.home_telephone_number.present? %>
+          <%= @applicant.home_telephone_number + "." %>
+        <% else %>
+          <%= "None on record. " %>
+        <% end %>
+        Work:
+        <% if @applicant.work_telephone_number.present? %>
+          <%= @applicant.work_telephone_number + "." %>
+        <% else %>
+          <%= "None on record. " %>
+        <% end %>
+        Mobile:
+        <% if @applicant.mobile_telephone_number.present? %>
+          <%= @applicant.mobile_telephone_number + "." %>
+        <% else %>
+          <%= "None on record. " %>
+        <% end %>
+      </p>
+      <p>
+        <%= "(" + @applicant.location + ")" if @applicant.location != nil %>
+      </p>
+
+      <br/>
+      <hr>
+    <div class="submission-form-fields field-section">
+      <%= simple_form_for @submission do |submission_form| %>
+        <%= render partial: "public/dynamic_submission_responses", locals: { submission_form: submission_form } %>
+
+        <div class="submit-button">
+          <%= submission_form.button :submit, "Submit", { class: "btn btn-primary" } %>
+        </div>
+
+      <% end %>
+    </div>
+</div>

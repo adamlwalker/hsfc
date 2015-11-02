@@ -1,0 +1,55 @@
+<div class="col-md-12">
+  <table class="table table-vertical-lines table-striped table-hover
+                table-condensed table-responsive">
+    <thead style="background-color: beige">
+    <tr>
+      <td>ID</td>
+      <td>Submission_Template_Name</td>
+      <td>Applicant_Name</td>
+      <td>Email</td>
+      <td>Home Phone</td>
+      <td>DateTime_Created</td>
+      <% @answered_question_names_array.each do |name, short_name| %>
+        <td><%= short_name || name %></td>
+      <% end%>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @submissions.each do |submission| %>
+      <% if submission.applicant %>
+        <tr>
+          <td><%= submission.id %></td>
+          <td><%= submission.submission_template.name %></td>
+          <td><%= link_to(submission.applicant.name, edit_applicant_path(submission.applicant.id)) %></td>
+          <td><% if submission.applicant.email_address %>
+                <%= mail_to(submission.applicant.email_address) %>
+              <% else %>
+                <%= "No email on record." %>
+              <% end %>
+          </td>
+          <td><%= submission.applicant.home_telephone_number %></td>
+          <td><%= link_to(submission.created_at.strftime("%m/%d %l:%M %p"),
+                          edit_submission_path(submission.id)) %></td>
+          <% @answered_question_names_array.each do |question_name| %>
+            <% question = Question.where(name: question_name).first %>
+            <% if question.responses.where(submission: submission).any? %>
+              <% response =
+                     question.responses.where(submission: submission).first %><!--FIXME - assumes only one response-->
+              <% input_type = question.input_type %>
+                <% if input_type == "multiselect" %>
+                  <td><%= response.array_response && response.array_response.
+                      to_sentence || '._.' %></td>
+                <% else %>
+                  <td><%= response.send(question_field_name(input_type)) || '._.' %></td>
+                <% end%>
+            <% else %>
+              <td></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end%>
+    </tbody>
+  </table>
+</div>
