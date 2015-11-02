@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802162400) do
+ActiveRecord::Schema.define(version: 20151024162400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applicants", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",              null: false
+    t.string   "last_name",               null: false
     t.string   "home_telephone_number"
     t.string   "mobile_telephone_number"
     t.string   "work_telephone_number"
@@ -253,76 +253,85 @@ ActiveRecord::Schema.define(version: 20150802162400) do
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",       null: false
     t.text     "description"
     t.string   "date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "form_type_questions", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "form_type_id", null: false
-  end
-
-  add_index "form_type_questions", ["form_type_id"], name: "index_form_type_questions_on_form_type_id", using: :btree
-  add_index "form_type_questions", ["question_id"], name: "index_form_type_questions_on_question_id", using: :btree
-
-  create_table "form_types", force: :cascade do |t|
-    t.integer  "pet_type_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "name"
-  end
-
-  add_index "form_types", ["pet_type_id"], name: "index_form_types_on_pet_type_id", using: :btree
-
   create_table "pet_types", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text     "content"
+    t.string   "name",                                null: false
     t.integer  "position"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "input_type"
     t.integer  "parent_id"
     t.boolean  "admin_only_question"
     t.string   "answer_type"
-    t.string   "option_list",         default: [],              array: true
+    t.string   "option_list",         default: [],                 array: true
+    t.string   "short_name"
+    t.string   "hint_text"
+    t.boolean  "is_required",         default: false, null: false
+    t.boolean  "active",              default: true,  null: false
   end
 
   create_table "responses", force: :cascade do |t|
-    t.integer  "question_id"
+    t.integer  "question_id",                    null: false
     t.integer  "integer_response"
     t.string   "string_response"
     t.text     "text_response"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.boolean  "boolean_response"
     t.string   "date_response"
-    t.integer  "submission_id",    null: false
+    t.integer  "submission_id",                  null: false
+    t.datetime "datetime_response"
+    t.string   "array_response",    default: [],              array: true
   end
 
   add_index "responses", ["question_id"], name: "index_responses_on_question_id", using: :btree
   add_index "responses", ["submission_id"], name: "index_responses_on_submission_id", using: :btree
 
-  create_table "submissions", force: :cascade do |t|
-    t.integer  "applicant_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "form_type_id", null: false
+  create_table "submission_template_questions", force: :cascade do |t|
+    t.integer  "question_id",            null: false
+    t.integer  "submission_template_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "submissions", ["form_type_id"], name: "index_submissions_on_form_type_id", using: :btree
+  add_index "submission_template_questions", ["question_id"], name: "index_submission_template_questions_on_question_id", using: :btree
+  add_index "submission_template_questions", ["submission_template_id"], name: "index_submission_template_questions_on_submission_template_id", using: :btree
 
-  add_foreign_key "form_type_questions", "form_types"
-  add_foreign_key "form_type_questions", "questions"
-  add_foreign_key "form_types", "pet_types"
+  create_table "submission_templates", force: :cascade do |t|
+    t.integer  "pet_type_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",                      null: false
+    t.text     "submission_thank_you_text"
+  end
+
+  add_index "submission_templates", ["pet_type_id"], name: "index_submission_templates_on_pet_type_id", using: :btree
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "applicant_id",           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "submission_template_id", null: false
+  end
+
+  add_index "submissions", ["submission_template_id"], name: "index_submissions_on_submission_template_id", using: :btree
+
   add_foreign_key "responses", "questions"
   add_foreign_key "responses", "submissions"
-  add_foreign_key "submissions", "form_types"
+  add_foreign_key "submission_template_questions", "questions"
+  add_foreign_key "submission_template_questions", "submission_templates"
+  add_foreign_key "submission_templates", "pet_types"
+  add_foreign_key "submissions", "submission_templates"
 end

@@ -7,8 +7,9 @@ Issue tracking can be found [here](https://trello.com/b/uiGhjbJI/humane-society-
 ## Getting Started:
 
     bundle install
-    rake db:create db:migrate
+    rake db:create rake db:migrate
     pg_restore db/hsfc_rubyforgood.dump
+
 
 ## Environment variables
 
@@ -42,9 +43,12 @@ with the following command.
 
 ### Adoption form data:
 
-To load the production questions, etc, into your database, run:
+To load the production questions and other seeds, etc, into your database, run:
 
-    rails r db/hsfc_production_seeds.rb
+    rake db:submission_data_load
+
+(To delete data from the application tables, run:
+    rake db:submission_data_destroy)
 
 
 ### CMS Fixtures:

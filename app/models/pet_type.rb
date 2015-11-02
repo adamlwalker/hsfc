@@ -1,3 +1,3 @@
 class PetType < ActiveRecord::Base
-    has_many :form_types
+    has_many :submission_templates
 end

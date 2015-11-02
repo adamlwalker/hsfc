@@ -22,6 +22,29 @@ namespace :db do
     exec cmd
   end
 
+  desc "Print model counts for submission data"
+  task :submission_stats_check => :environment  do
+    require "#{Rails.root}/db/submission_stats_check.rb"
+  end
+
+  desc "Loads hsfc_submission_data_load.rb"
+  task :submission_data_load_file => :environment  do
+    require "#{Rails.root}/db/hsfc_submission_data_load.rb"
+  end
+
+  desc "Drops data from submission-related tables.rb"
+  task :submission_data_destroy_file => :environment  do
+    require "#{Rails.root}/db/hsfc_submission_data_destroy.rb"
+  end
+
+  desc "Loads submission-related data && shows relevant stats"
+  task :submission_data_load => ['db:submission_data_load_file',
+                                 'db:submission_stats_check']
+
+  desc "Drops submission-related data && shows relevant stats"
+  task :submission_data_destroy => ['db:submission_data_destroy_file',
+                                    'db:submission_stats_check']
+
   private
 
   def with_config

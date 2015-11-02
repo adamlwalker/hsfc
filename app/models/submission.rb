@@ -1,17 +1,16 @@
 class Submission < ActiveRecord::Base
-    belongs_to :applicant
-    belongs_to :form_type
-    has_many   :responses
-    has_many   :questions, through: :form_type
+  belongs_to :applicant, inverse_of: :submissions
+  belongs_to :submission_template
+  has_many   :responses
+  has_many   :questions, through: :submission_template
 
+  accepts_nested_attributes_for :responses
 
-    accepts_nested_attributes_for :responses
-
-    def self.new_with_responses(form_type_id)
-      submission = self.new(form_type_id: form_type_id)
-      submission.questions.each do |q|
-        submission.responses.build(question_id: q.id)
-      end
-      submission
+  def self.new_with_responses(submission_template_id)
+    submission = self.new(submission_template_id: submission_template_id)
+    submission.questions.order(:position).each do |q|
+      submission.responses.build(question_id: q.id)
     end
+    submission
+  end
 end
