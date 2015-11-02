@@ -1,0 +1,255 @@
+/* ----- Form Styles ----- */
+
+.submission-form, .submission-show, .submission-edit {
+  padding-top: 2em;
+  text-align: center;
+}
+
+.submission-form-body, .submission-show-body, .submission-edit-body {
+  padding-bottom: 4em;
+  text-align: center;
+  margin: 0em 6em;
+}
+
+.applicant-fields {
+  padding: 2em 0em 2em 0em;
+  text-align: center;
+  border-color: $blue-light;
+  border-top-style: solid;
+}
+
+.field-section {
+  border: 2px;
+  border-color: $blue-light;
+  border-bottom-style: solid;
+}
+
+.parent-question {
+  padding-top: 2em;
+  display: block;
+  border: 2px;
+  border-color: $blue-light;
+  border-top-style: solid;
+  font-size: 1.25em;
+}
+
+.submission-fields {
+  padding-top: 2em;
+}
+
+.submit-button {
+  text-align: center;
+  padding: 2em 0em;
+}
+
+.form-title {
+  padding-top: 2em;
+}
+
+.header-bar {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+/* ----- SimpleForm CUSTOM Styles ----- */
+
+.admin-only-hidden {
+  display: none;
+}
+
+.admin-only {
+  width: 60%;
+  margin: auto;
+  color: $orange;
+}
+
+.child-question {
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 1;
+  margin: 0em 2em 0em 2em;
+  font-size: 1em;
+}
+
+.show-question {
+  font-size: 1.25em;
+}
+
+.radio {
+  text-align: center;
+}
+
+.info-text {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  font-style: italic;
+  color: $grey;
+}
+
+.medium-sized-response {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.short-response {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+.table {
+  background-color: white !important;
+}
+
+.table-new-record {
+  background-color: #FFFFA5;
+}
+
+.table-vertical-lines {
+  border-right: 1px dashed #333;
+}
+
+.wide-response {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+/* ----- SimpleForm Styles ----- */
+
+.simple_form div.input {
+  margin-bottom: 10px;
+  clear: both; /* Required for Webkit, but not for Gecko */
+}
+
+.form-horizontal .control-label {
+  text-align: center;
+}
+
+.simple_form label {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.label {
+  display: inline-block;
+}
+
+
+.form-inline {
+  display: block;
+  text-align: center;
+  .form-group {
+    display: inline-block;
+    margin: 1em 2em 1em 2em;
+  }
+}
+
+.form-inline-wide {
+  display: block;
+  text-align: center;
+  .form-group {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1em 1em 1em 1em;
+  }
+}
+
+div.boolean, .simple_form input[type='submit'] {
+  margin: auto;
+}
+
+div.boolean label, label.collection_radio_buttons {
+  float: none;
+  margin: 0;
+}
+
+label.collection_radio_buttons {
+  margin: auto;
+  display: inline-block;
+}
+
+.field_with_errors {
+  background-color: #ff3333;
+}
+
+.simple_form .error {
+  clear: left;
+  color: black;
+  display: block;
+  margin-left: 120px;
+
+  span.glyphicon {
+    color:  #ff0000;
+    font-size: 80px;
+    text-align: center;
+  }
+}
+
+.simple_form .hint {
+  clear: left;
+  margin-left: 120px;
+  color: #555;
+  display: block;
+  font-style: italic;
+}
+
+input.radio {
+  margin: 1em;
+  vertical-align: -3px;
+  display: inline;
+}
+
+.collection_radio_buttons .radio_buttons {
+  background-color: #00ebfa;
+}
+
+.radio label, .checkbox label {
+}
+
+.radio {
+  margin: .1em .5em .1em .5em;
+  display: inline-block;
+}
+
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio_buttons   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 1em;
+  color       : rgb(153,204,102);
+  font-size   : 0.875em;
+  line-height : 1em;
+  text-align  : center;
+  text-shadow : 0 0 0.0714em rgb(115,153,77);
+  font-weight : bold;
+}
+
+
+.checkbox {
+  margin: .1em 1em .1em 1em;
+  display: inline-block;
+}
+
+input.check_boxes {
+  margin-left: 3px;
+  vertical-align: -3px;
+}
+
+label.collection_check_boxes {
+  float: none;
+  margin: 0;
+  vertical-align: -2px;
+  margin-left: 2px;
+}
